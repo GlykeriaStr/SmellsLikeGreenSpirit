@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "node_modules/.bin/jest test/**/*.spec.js"
   },
   "dependencies": {
     "expo": "~40.0.0",
@@ -16,7 +17,27 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "detox": "^18.7.1",
+    "detox-expo-helpers": "^0.6.0",
+    "expo-detox-hook": "^1.0.10",
+    "jest-circus": "^26.6.3",
+    "jest-expo": "^40.0.2",
+    "react-native-testing-library": "^6.0.0",
+    "react-test-renderer": "^17.0.1"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.sim": {
+        "binaryPath": "bin/Exponent.app",
+        "type": "ios.simulator",
+        "name": "iPhone 11"
+      }
+    }
   },
   "private": true
 }
