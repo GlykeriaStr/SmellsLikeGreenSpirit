@@ -1,13 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
 
 export default function App() {
+  const [miles, setMiles] = useState('0')
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>Enter mileage:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='e.g. 50'
+        onChangeText={(val) => setMiles(val)} 
+        />
+      <Button color="orange" title="Click Me" onPress={() => console.log(miles)}/>
+    </SafeAreaView>
   );
 }
 
@@ -18,4 +24,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  input: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 8,
+    margin: 10,
+    width: 100,
+  }
 });
