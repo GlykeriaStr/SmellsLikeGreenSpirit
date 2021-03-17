@@ -1,13 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { useState } from 'react';
-// import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet, Text } from 'react-native';
 
 const ResultsScreen = () => {
-  return (
-    <Text>Welcome to the Results screen</Text>
-  );
-}
+  return <Text>Welcome to the Results screen</Text>;
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -22,7 +18,7 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 100,
-  }
-})
+  },
+});
 
 export default ResultsScreen;

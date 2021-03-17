@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "node_modules/.bin/jest test/**/*.spec.js"
+    "test": "node_modules/.bin/jest test/**/*.spec.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -25,8 +26,11 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-eslint": "^10.1.0",
     "detox": "^18.7.1",
     "detox-expo-helpers": "^0.6.0",
+    "eslint": "^7.22.0",
     "expo-detox-hook": "^1.0.10",
     "jest-circus": "^26.6.3",
     "jest-expo": "^40.0.2",
