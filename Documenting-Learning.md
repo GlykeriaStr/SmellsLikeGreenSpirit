@@ -23,3 +23,18 @@
 
 - We started creating features in the App.js file (text box, button)
 - Our plan for the next day was to split into teams and look at testing and routing.
+
+### End of Sprint
+
+- Glykeria 🍝
+- Karsten
+- Tom
+- Jon
+- Miranda 🥦 vegetable + feta tray bake
+
+## 17 March 2021
+
+### Morning
+
+- We asked the coaches what framework to use for e2e testing, since our original plan of Detox doesn't work with Expo.
+- Split into two teams to work on routing and testing.
