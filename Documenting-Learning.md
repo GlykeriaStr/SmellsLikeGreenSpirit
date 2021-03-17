@@ -38,3 +38,4 @@
 
 - We asked the coaches what framework to use for e2e testing, since our original plan of Detox doesn't work with Expo.
 - Split into two teams to work on routing and testing.
+- Routing team: our goal was to add a second screen, so we watched some of a Udemy course where he demonstrated how to use React Navigation. We learned about stack navigation. We then installed the latest version of React Navigation, and set up folders to store screens, components and navigation files. We connected up a HomeScreen and ResultsScreen, but the routing didn't work. We decided to spend our self-learning time after lunch researching what to do with the main App.js file now that React Navigation is involved.
