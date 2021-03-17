@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigator-stack';
+import { useState } from 'react';
+// import { createStackNavigator } from '@react-navigation/stack';
 
 const ResultsScreen = () => {
   return (
@@ -22,5 +23,6 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 100,
   }
+})
 
 export default ResultsScreen;

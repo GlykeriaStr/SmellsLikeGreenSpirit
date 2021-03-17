@@ -7,7 +7,7 @@ import ResultsScreen from '../screens/ResultsScreen'
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -18,4 +18,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default AppNavigator;

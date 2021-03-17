@@ -1,22 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { createStackNavigator } from 'react-navigator-stack';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { useState } from 'react';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
+  const [miles, setMiles] = useState('0')
+
   return (
-    <Text>Enter mileage:</Text>
-    <TextInput
-      style={styles.input}
-      placeholder='e.g. 50'
-      onChangeText={(val) => setMiles(val)}
-    />
-    <Button
-      color="orange"
-      title="Click Me"
-      onPress={() => navigation.navigate('Results')}
-    />
+    <View>
+      <Text>Enter mileage:</Text>
+      <TextInput
+        style={styles.input}
+        placeholder='e.g. 50'
+        onChangeText={(val) => setMiles(val)}
+      />
+      <Button
+        color="orange"
+        title="Click Me"
+        onPress={() => navigation.navigate('Results')}
+      />
+    </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -32,5 +37,6 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 100,
   }
+})
 
 export default HomeScreen;
