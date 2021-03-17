@@ -2,15 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { useState } from 'react';
 
-const HomeScreen = ({navigation}) => {
-  const [miles, setMiles] = useState('0')
+const HomeScreen = ({ navigation }) => {
+  const [miles, setMiles] = useState('0');
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Enter mileage:</Text>
       <TextInput
         style={styles.input}
-        placeholder='e.g. 50'
+        placeholder="e.g. 50"
         onChangeText={(val) => setMiles(val)}
       />
       <Button
@@ -20,8 +20,7 @@ const HomeScreen = ({navigation}) => {
       />
     </View>
   );
-}
-
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 100,
-  }
-})
+  },
+});
 
 export default HomeScreen;

@@ -1,5 +1,5 @@
-describe("App", function() {
-  it("says hello", function() {
-    expect()
-  })
+describe('App', function () {
+  it('says hello', function () {
+    expect();
+  });
 });
