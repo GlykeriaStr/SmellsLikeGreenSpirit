@@ -1,3 +1,4 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
@@ -10,7 +11,7 @@ export default function App() {
       <TextInput
         style={styles.input}
         placeholder='e.g. 50'
-        onChangeText={(val) => setMiles(val)} 
+        onChangeText={(val) => setMiles(val)}
         />
       <Button color="orange" title="Click Me" onPress={() => console.log(miles)}/>
     </SafeAreaView>
