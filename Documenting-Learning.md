@@ -37,12 +37,20 @@
 ### Morning
 
 - We asked the coaches what framework to use for e2e testing, since our original plan of Detox doesn't work with Expo.
-- Split into two teams to work on routing and testing.
+- Split into two teams: Routing and Testing.
 - Routing team: our goal was to add a second screen, so we watched some of a Udemy course where he demonstrated how to use React Navigation. We learned about stack navigation. We then installed the latest version of React Navigation, and set up folders to store screens, components and navigation files. We connected up a HomeScreen and ResultsScreen, but the routing didn't work. We decided to spend our self-learning time after lunch researching what to do with the main App.js file now that React Navigation is involved.
 - Testing team: discovered that it's essentially not possible to do end to end testing with the Expo set up we are using (managed Expo workflow). Detox doesn't work. Tried out the competitor frameworks Appium and Cypress but they weren't appropriate.
 
 ### Afternoon
 
 - Concluded as a team to give up on e2e testing for now, given that it's a choice between tests or Expo. The option is left open to eject Expo later on once we feel more comfortable with React Native.
+- Coach Ben offered to meet with us 10am tomorrow to discuss testing.
 - We will look out for opportunities to use unit and component tests.
--
+- New teams: Linter and API set-up
+- Linter team: Successfully set up ESLint with Prettier. Should be run with `yarn lint`. We changed the default rule to allow spaces inside curly brackets.
+- API team: signed up for API keys but they haven't arrived yet. Discussed using an API placeholder like JSONPlaceholder to get the code working initially.
+
+### End of Day
+
+- Made a load more cards on the Trello board for the next round of work, and decided that we would focus on getting APIs set up tomorrow.
+
