@@ -54,3 +54,10 @@
 
 - Made a load more cards on the Trello board for the next round of work, and decided that we would focus on getting APIs set up tomorrow.
 
+## 18 March 2021
+
+### Morning
+
+- Spoke to coach Ben about e2e testing in React Native. He confirmed that it's very difficult, and said it's better to stick with the managed workflow even though e2e testing isn't possible. Just try to extract as much logic out as possible into separate classes/functions (he called them utilities, like helper methods in Ruby/Rails) and test them with Jest.
+- Watched some of Tom's Udemy about API calls.
+- Split into team to work on license plate API and miles to carbon API.
