@@ -6,7 +6,7 @@ const HomeScreen = ({ navigation }) => {
   const [miles, setMiles] = useState('0');
 
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Enter mileage:</Text>
       <TextInput
         style={styles.input}
@@ -16,7 +16,7 @@ const HomeScreen = ({ navigation }) => {
       <Button
         color="orange"
         title="Click Me"
-        onPress={() => navigation.navigate('Results')}
+        onPress={() => navigation.navigate('Results', { miles })}
       />
     </View>
   );
