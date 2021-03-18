@@ -59,5 +59,15 @@
 ### Morning
 
 - Spoke to coach Ben about e2e testing in React Native. He confirmed that it's very difficult, and said it's better to stick with the managed workflow even though e2e testing isn't possible. Just try to extract as much logic out as possible into separate classes/functions (he called them utilities, like helper methods in Ruby/Rails) and test them with Jest.
-- Watched some of Tom's Udemy about API calls.
+- Watched some of Tom's Udemy about API calls. Decided to use Axios library rather than Fetch.
 - Split into team to work on license plate API and miles to carbon API.
+- Alice visited the Zoom at one point and gave us advice on hiding API keys from Github, and on debugging. She suggested coming up protocols for manual testing, to be run occasionally, in place of automated e2e tests.
+- License plate API team: Managed to get an API from the government. Discovered that cars have a "CO2 emissions" measurement of g/km. Therefore, we don't necessarily need another API to calculate emissions from car details!
+- Miles to carbon API team: Were able to get the Cloverly API set up and working. Decided not to proceed with this for now since the License Plate CO2 measurements will be enough for satisfying the MVP.
+
+### Afternoon
+
+- Moving stuff between screens team: discovered how to move data across screens by giving another argument to the `navigation.navigate` call.
+- Decided to focus next on hooking up the license plate API to get the CO2 amounts, tidying up the code to remove references to Detox which we're not using, and adding a switch between miles and km.
+- License plate team:
+- Units switch team:
