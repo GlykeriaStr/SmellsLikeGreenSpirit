@@ -1,5 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import LicensePlate from '../api/LicensePlate';
+import axios from 'axios';
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 
 const ResultsScreen = ({ route, navigation }) => {
   const { miles } = route.params;

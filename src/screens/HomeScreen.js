@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const HomeScreen = ({ navigation }) => {
   const [miles, setMiles] = useState('0');
+  const [plate, setPlate] = useState('');
 
   return (
     <View>
@@ -12,6 +13,11 @@ const HomeScreen = ({ navigation }) => {
         style={styles.input}
         placeholder="e.g. 50"
         onChangeText={(val) => setMiles(val)}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="e.g. NT08 GBF"
+        onChangeText={(license) => setPlate(license)}
       />
       <Button
         color="orange"
