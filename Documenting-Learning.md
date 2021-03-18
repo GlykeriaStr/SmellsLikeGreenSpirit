@@ -69,5 +69,17 @@
 
 - Moving stuff between screens team: discovered how to move data across screens by giving another argument to the `navigation.navigate` call.
 - Decided to focus next on hooking up the license plate API to get the CO2 amounts, tidying up the code to remove references to Detox which we're not using, and adding a switch between miles and km.
-- License plate team:
-- Units switch team:
+- License plate team: Added code using Axios to access the API but getting 403 errors.
+- Units switch team: created a toggle switch that can be connected up to logic later on.
+
+### End of Sprint
+
+- Agreed to continue with same problems for next sprint, plus starting styling.
+- Working title: Spring Onion.
+- Decided not to merge the current working branches because the features aren't finished.
+
+- Glykeria :cake: (maybe) Shepherd’s pie
+- Karsten :beverage_box: Quorn and peas
+- Tom :full_moon_with_face: Chicken soup
+- Jon :palm_tree: Big Mac with 6 nuggets
+- Miranda :tropical_fish: stirfry maybe?
