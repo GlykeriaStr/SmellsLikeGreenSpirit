@@ -1,8 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-const ResultsScreen = () => {
-  return <Text>Welcome to the Results screen</Text>;
+const ResultsScreen = ({ route, navigation }) => {
+  const { miles } = route.params;
+
+  return (
+    <Text>
+      Welcome to the Results screen these are the miles you put in: {miles}miles
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
