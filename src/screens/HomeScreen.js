@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
-import LicensePlateKey from '../../secrets/LicensePlateKey'
+import LicensePlateKey from '../../secrets/LicencePlateKey';
+import KMToMilesSwitch from '../switches/ToggleSwitch';
 
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
@@ -36,7 +37,17 @@ const HomeScreen = ({ navigation }) => {
       <Button
         color="orange"
         title="Click Me"
+<<<<<<< HEAD
         onPress={() => { handleSubmit() }} />
+=======
+        onPress={() => {
+          searchApi();
+          console.log("inside button press");
+          navigation.navigate('Results', { distance })}}
+      />
+      <Text>{'\n'}</Text>
+      <View>{KMToMilesSwitch()}</View>
+>>>>>>> 46bd6f3... Toggle feature implemented in HomeScreen
     </View>
   );
 };
