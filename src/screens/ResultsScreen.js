@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import LicensePlate from '../api/LicensePlate';
-import LicensePlateKey from '../../secrets/LicensePlateKey'
-import axios from 'axios';
-import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-const ResultsScreen = ({ route, navigation }) => {
-  const { miles } = route.params;
+const ResultsScreen = ({ route }) => {
+  console.log('inside result screen');
+  const { distance } = route.params
+
 
   return (
     <Text>

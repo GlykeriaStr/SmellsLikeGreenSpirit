@@ -5,7 +5,7 @@ import axios from 'axios';
 import LicensePlateKey from '../../secrets/LicensePlateKey'
 
 const HomeScreen = ({ navigation }) => {
-  const [miles, setMiles] = useState('0');
+  const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
   const [ApiResults, setApiResults] = useState([]);
 
@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="e.g. 50"
-        onChangeText={(val) => setMiles(val)}
+        onChangeText={(val) => setDistance(val)}
       />
       <TextInput
         style={styles.input}
@@ -43,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => {
           searchApi();
           console.log("inside button press");
-          navigation.navigate('Results', { miles })}}
+          navigation.navigate('Results', { distance })}}
       />
     </View>
   );
