@@ -1,12 +1,14 @@
-import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const ResultsScreen = ({ route, navigation }) => {
-  const { miles } = route.params;
+const ResultsScreen = ({ route }) => {
+  console.log('inside result screen');
+  const { distance } = route.params
+
 
   return (
     <Text>
-      Welcome to the Results screen these are the miles you put in: {miles}miles
+      Welcome to the Results screen these are the miles you put in: { distance }miles
     </Text>
   );
 };
