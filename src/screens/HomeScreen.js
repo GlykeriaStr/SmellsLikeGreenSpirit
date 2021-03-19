@@ -7,7 +7,6 @@ import LicensePlateKey from '../../secrets/LicensePlateKey'
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
-  const [apiResults, setApiResults] = useState([]);
 
   const handleSubmit = async () => {
     console.log("at start of API function handleSubmit");
@@ -17,9 +16,10 @@ const HomeScreen = ({ navigation }) => {
     try {
       const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
       );
-      setApiResults(response.data.co2Emissions);
       console.log("the API was called on home screen");
-      await navigation.navigate('Results', { distance, apiResults });
+      const emissions = await response.data.co2Emissions
+      console.log(`How about this? ${emissions}`);
+      await navigation.navigate('Results', { distance, emissions });
     } catch (error) {
       console.error(error);
     }
@@ -27,7 +27,6 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text>Enter mileage: {apiResults}</Text>
       <TextInput
         style={styles.input}
         placeholder="e.g. 50"
