@@ -7,7 +7,7 @@ import LicensePlateKey from '../../secrets/LicensePlateKey'
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
-  const [ApiResults, setApiResults] = useState([]);
+  const [apiResults, setApiResults] = useState([]);
 
   const searchApi = async () => {
     console.log("at start of API function");
@@ -17,7 +17,7 @@ const HomeScreen = ({ navigation }) => {
     try {
       const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
       );
-      setApiResults(response.data);
+      setApiResults(response.data.co2Emissions);
       console.log("the API was called on home screen");
     } catch (error) {
       console.error(error);
@@ -43,7 +43,10 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => {
           searchApi();
           console.log("inside button press");
-          navigation.navigate('Results', { distance })}}
+          console.log(apiResults);
+          console.log('====================================');
+          navigation.navigate('Results', { distance, apiResults })}}
+
       />
     </View>
   );

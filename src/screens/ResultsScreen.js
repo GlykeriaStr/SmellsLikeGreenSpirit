@@ -3,12 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const ResultsScreen = ({ route }) => {
   console.log('inside result screen');
-  const { distance } = route.params
-
+  const { distance, apiResults } = route.params
+  console.log(apiResults);
+  console.log('====================================');
 
   return (
     <Text>
-      Welcome to the Results screen these are the miles you put in: { distance }miles
+      Welcome to the Results screen these are the miles you put in: { distance }miles and the emissions are : { apiResults }
     </Text>
   );
 };
