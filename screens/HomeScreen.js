@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, Switch, View, SafeAreaView, Button } from 'react-native';
 import { useState } from 'react';
-import ToggleSwitch from 'toggle-switch-react-native'
 
 const HomeScreen = ({ navigation }) => {
   const [miles, setMiles] = useState('0');
@@ -19,17 +18,41 @@ const HomeScreen = ({ navigation }) => {
         title="Click Me"
         onPress={() => navigation.navigate('Results', { miles })}
       />
-      <ToggleSwitch
-        isOn={false}
-        onColor="green"
-        offColor="red"
-        label="Miles"
-        labelStyle={{ color: "black", fontWeight: "900" }}
-        size="large"
-        onToggle={isOn => console.log("changed to : ", isOn)}
-      />
+      <Text>{"\n"}</Text>
+      <View>
+        {KMToMilesSwitch()}
+      </View>
     </View>
   );
+<<<<<<< HEAD
+=======
+}
+
+const KMToMilesSwitch = () => {
+  const [switchValue, setSwitchValue] = useState(false);
+
+  const toggleSwitch = (value) => {
+    setSwitchValue(value);
+    console.log(switchValue);
+  };
+
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <Text>
+          { switchValue ? "MILES" : "KM" }
+        </Text>
+        <Switch
+          ios_backgroundColor="lightsteelblue"
+          trackColor={{true: 'lightseagreen'}}
+          style={{marginTop: 10}}
+          onValueChange={toggleSwitch}
+          value={switchValue}
+        />
+      </View>
+    </SafeAreaView>
+  );
+>>>>>>> 2b7eead... Toggle feature works but on IOS the MILES KM text is not showing
 };
 
 const styles = StyleSheet.create({
@@ -38,6 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'red',
   },
   input: {
     borderWidth: 1,
@@ -46,6 +70,13 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 100,
   },
+<<<<<<< HEAD
 });
+=======
+  innerText: {
+    color: 'red',
+  }
+})
+>>>>>>> 2b7eead... Toggle feature works but on IOS the MILES KM text is not showing
 
 export default HomeScreen;
