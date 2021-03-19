@@ -5,24 +5,19 @@ const KMToMilesSwitch = () => {
   const [switchValue, setSwitchValue] = useState(false);
 
   const toggleSwitch = (value) => {
-    //To handle switch toggle
     setSwitchValue(value);
-    //State changes according to switch
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView>
+      <Text style={styles.toggleText}>
+        { switchValue ? "MILES" : "KM" }
+      </Text>
       <View style={styles.container}>
-        {/*To show Switch state*/}
-        <Text>
-          {switchValue ? 'MILES' : 'KM'}
-        </Text>
-        {/*Setting the default value of state*/}
-        {/*On change of switch onValueChange will be triggered*/}
         <Switch
           ios_backgroundColor="lightsteelblue"
           trackColor={{true: 'lightseagreen'}}
-          style={{marginTop: 10}}
+          style={{marginTop: 30}}
           onValueChange={toggleSwitch}
           value={switchValue}
         />
@@ -37,6 +32,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  toggleText: {
+    textAlign: 'center',
+    color: 'black',
+    padding: 5,
+  }
 });
 
 export default KMToMilesSwitch;

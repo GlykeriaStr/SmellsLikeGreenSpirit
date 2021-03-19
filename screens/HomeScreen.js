@@ -24,35 +24,6 @@ const HomeScreen = ({ navigation }) => {
       </View>
     </View>
   );
-<<<<<<< HEAD
-=======
-}
-
-const KMToMilesSwitch = () => {
-  const [switchValue, setSwitchValue] = useState(false);
-
-  const toggleSwitch = (value) => {
-    setSwitchValue(value);
-    console.log(switchValue);
-  };
-
-  return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
-        <Text>
-          { switchValue ? "MILES" : "KM" }
-        </Text>
-        <Switch
-          ios_backgroundColor="lightsteelblue"
-          trackColor={{true: 'lightseagreen'}}
-          style={{marginTop: 10}}
-          onValueChange={toggleSwitch}
-          value={switchValue}
-        />
-      </View>
-    </SafeAreaView>
-  );
->>>>>>> 2b7eead... Toggle feature works but on IOS the MILES KM text is not showing
 };
 
 const styles = StyleSheet.create({
@@ -70,13 +41,6 @@ const styles = StyleSheet.create({
     margin: 10,
     width: 100,
   },
-<<<<<<< HEAD
 });
-=======
-  innerText: {
-    color: 'red',
-  }
-})
->>>>>>> 2b7eead... Toggle feature works but on IOS the MILES KM text is not showing
 
 export default HomeScreen;
