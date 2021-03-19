@@ -9,8 +9,8 @@ const HomeScreen = ({ navigation }) => {
   const [plate, setPlate] = useState('');
   const [apiResults, setApiResults] = useState([]);
 
-  const searchApi = async () => {
-    console.log("at start of API function");
+  const handleSubmit = async () => {
+    console.log("at start of API function handleSubmit");
     console.log(`plate is ${plate}`);
     const headers = { 'x-api-key': `${LicensePlateKey}`, };
     const body = { "registrationNumber": plate };
@@ -19,11 +19,12 @@ const HomeScreen = ({ navigation }) => {
       );
       setApiResults(response.data.co2Emissions);
       console.log("the API was called on home screen");
+      await navigation.navigate('Results', { distance, apiResults });
     } catch (error) {
       console.error(error);
     }
   };
-  console.log(apiResults);
+
   return (
     <View>
       <Text>Enter mileage: {apiResults}</Text>
@@ -40,20 +41,7 @@ const HomeScreen = ({ navigation }) => {
       <Button
         color="orange"
         title="Click Me"
-        onPress={() => {
-          searchApi();
-          console.log("inside button press");
-          console.log(apiResults);
-          setTimeout(() => {
-            console.log("inside Time out");
-            console.log(apiResults);
-            navigation.navigate('Results', { distance, apiResults });
-          }, 3000);
-          console.log("after time out");
-          console.log(apiResults);
-         }}
-
-      />
+        onPress={() => { handleSubmit() }} />
     </View>
   );
 };
