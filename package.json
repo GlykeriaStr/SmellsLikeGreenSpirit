@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "node_modules/.bin/jest test/**/*.spec.js",
+    "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
