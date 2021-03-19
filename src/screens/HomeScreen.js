@@ -7,18 +7,15 @@ import LicensePlateKey from '../../secrets/LicensePlateKey'
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
-  const [ApiResults, setApiResults] = useState([]);
 
-  const searchApi = async () => {
-    console.log("at start of API function");
-    console.log(`plate is ${plate}`);
+  const handleSubmit = async () => {
     const headers = { 'x-api-key': `${LicensePlateKey}`, };
     const body = { "registrationNumber": plate };
     try {
       const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
       );
-      setApiResults(response.data);
-      console.log("the API was called on home screen");
+      const emissions = await response.data.co2Emissions
+      await navigation.navigate('Results', { distance, emissions });
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +23,6 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text>Enter mileage:</Text>
       <TextInput
         style={styles.input}
         placeholder="e.g. 50"
@@ -40,11 +36,7 @@ const HomeScreen = ({ navigation }) => {
       <Button
         color="orange"
         title="Click Me"
-        onPress={() => {
-          searchApi();
-          console.log("inside button press");
-          navigation.navigate('Results', { distance })}}
-      />
+        onPress={() => { handleSubmit() }} />
     </View>
   );
 };
