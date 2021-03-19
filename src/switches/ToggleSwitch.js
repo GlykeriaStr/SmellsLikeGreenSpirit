@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { Switch, View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
-const KMToMilesSwitch = () => {
-  const [switchValue, setSwitchValue] = useState(false);
+const KMToMilesSwitch = (switchValue, setSwitchValue) => {
 
   const toggleSwitch = (value) => {
     setSwitchValue(value);

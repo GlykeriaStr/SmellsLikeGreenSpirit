@@ -8,6 +8,11 @@ import KMToMilesSwitch from '../switches/ToggleSwitch';
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
+<<<<<<< HEAD
+=======
+  const [ApiResults, setApiResults] = useState([]);
+  const [value, setValue] = useState(false);
+>>>>>>> 3a76319... Obtained value from toggle (should be renamed)
 
   const handleSubmit = async () => {
     const headers = { 'x-api-key': `${LicensePlateKey}`, };
@@ -46,8 +51,13 @@ const HomeScreen = ({ navigation }) => {
           navigation.navigate('Results', { distance })}}
       />
       <Text>{'\n'}</Text>
+<<<<<<< HEAD
       <View>{KMToMilesSwitch()}</View>
 >>>>>>> 46bd6f3... Toggle feature implemented in HomeScreen
+=======
+      <View>{KMToMilesSwitch(value, setValue)}</View>
+      <Text>{console.log(value)}</Text>
+>>>>>>> 3a76319... Obtained value from toggle (should be renamed)
     </View>
   );
 };
