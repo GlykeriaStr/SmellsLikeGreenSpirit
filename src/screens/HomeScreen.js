@@ -23,10 +23,10 @@ const HomeScreen = ({ navigation }) => {
       console.error(error);
     }
   };
-
+  console.log(apiResults);
   return (
     <View>
-      <Text>Enter mileage:</Text>
+      <Text>Enter mileage: {apiResults}</Text>
       <TextInput
         style={styles.input}
         placeholder="e.g. 50"
@@ -44,8 +44,14 @@ const HomeScreen = ({ navigation }) => {
           searchApi();
           console.log("inside button press");
           console.log(apiResults);
-          console.log('====================================');
-          navigation.navigate('Results', { distance, apiResults })}}
+          setTimeout(() => {
+            console.log("inside Time out");
+            console.log(apiResults);
+            navigation.navigate('Results', { distance, apiResults });
+          }, 3000);
+          console.log("after time out");
+          console.log(apiResults);
+         }}
 
       />
     </View>
