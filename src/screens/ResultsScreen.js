@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import emissionsCalculator from '../logic/EmissionsCalculation';
 
 const ResultsScreen = ({ route }) => {
-  console.log('inside result screen');
   const { distance, emissions } = route.params
-  console.log(emissions);
-  console.log('====================================');
+  const result = emissionsCalculator(emissions, distance);
 
   return (
     <Text>
-      Welcome to the Results screen these are the miles you put in: { distance }miles and the emissions are : { emissions }
+      Your journey will release { result } grams of CO2.
     </Text>
   );
 };

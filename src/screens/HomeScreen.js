@@ -9,16 +9,12 @@ const HomeScreen = ({ navigation }) => {
   const [plate, setPlate] = useState('');
 
   const handleSubmit = async () => {
-    console.log("at start of API function handleSubmit");
-    console.log(`plate is ${plate}`);
     const headers = { 'x-api-key': `${LicensePlateKey}`, };
     const body = { "registrationNumber": plate };
     try {
       const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
       );
-      console.log("the API was called on home screen");
       const emissions = await response.data.co2Emissions
-      console.log(`How about this? ${emissions}`);
       await navigation.navigate('Results', { distance, emissions });
     } catch (error) {
       console.error(error);
