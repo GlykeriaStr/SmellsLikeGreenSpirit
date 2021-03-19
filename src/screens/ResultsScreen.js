@@ -8,7 +8,7 @@ const ResultsScreen = ({ route }) => {
 
   return (
     <Text>
-      Welcome to the Results screen these are the miles you put in: {miles}miles
+      Welcome to the Results screen these are the miles you put in: { distance }miles
     </Text>
   );
 };
