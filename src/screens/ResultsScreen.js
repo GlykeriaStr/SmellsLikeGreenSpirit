@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LicensePlate from '../api/LicensePlate';
+import LicensePlateKey from '../../secrets/LicensePlateKey'
 import axios from 'axios';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 
