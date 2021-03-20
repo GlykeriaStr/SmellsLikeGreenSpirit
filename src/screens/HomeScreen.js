@@ -4,15 +4,13 @@ import { useState } from 'react';
 import axios from 'axios';
 import LicensePlateKey from '../../secrets/LicencePlateKey';
 import KMToMilesSwitch from '../switches/ToggleSwitch';
+import milesToKilometres from '../logic/MilesToKilometres';
 
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
-<<<<<<< HEAD
-=======
-  const [ApiResults, setApiResults] = useState([]);
-  const [value, setValue] = useState(false);
->>>>>>> 3a76319... Obtained value from toggle (should be renamed)
+  const [value, setValue] = useState(false)
+  const KMDistance = milesToKilometres(value, distance)
 
   const handleSubmit = async () => {
     const headers = { 'x-api-key': `${LicensePlateKey}`, };
@@ -21,6 +19,7 @@ const HomeScreen = ({ navigation }) => {
       const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
       );
       const emissions = await response.data.co2Emissions
+      const distance = KMDistance
       await navigation.navigate('Results', { distance, emissions });
     } catch (error) {
       console.error(error);
@@ -42,22 +41,9 @@ const HomeScreen = ({ navigation }) => {
       <Button
         color="orange"
         title="Click Me"
-<<<<<<< HEAD
         onPress={() => { handleSubmit() }} />
-=======
-        onPress={() => {
-          searchApi();
-          console.log("inside button press");
-          navigation.navigate('Results', { distance })}}
-      />
       <Text>{'\n'}</Text>
-<<<<<<< HEAD
-      <View>{KMToMilesSwitch()}</View>
->>>>>>> 46bd6f3... Toggle feature implemented in HomeScreen
-=======
-      <View>{KMToMilesSwitch(value, setValue)}</View>
-      <Text>{console.log(value)}</Text>
->>>>>>> 3a76319... Obtained value from toggle (should be renamed)
+      <View>{ KMToMilesSwitch(value, setValue) }</View>
     </View>
   );
 };
