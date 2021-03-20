@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
 import LicencePlateKey from '../../secrets/LicencePlateKey';
@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
       const convertedDistance = KMDistance;
       await navigation.navigate('Results', { convertedDistance, emissions });
     } catch (error) {
-      console.error(error);
+      Alert.alert('Warning', 'This is not a valid licence plate number');
     }
   };
 
@@ -53,7 +53,10 @@ const HomeScreen = ({ navigation }) => {
         color="orange"
         title="Click Me"
         onPress={() => {
-          handleSubmit();
+          if (distance > 0) {
+            return handleSubmit();
+          }
+          Alert.alert('Warning', 'Distance must be a positive number');
         }}
       />
       <Text>{'\n'}</Text>
