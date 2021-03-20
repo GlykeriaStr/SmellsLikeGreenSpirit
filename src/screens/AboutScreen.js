@@ -1,17 +1,24 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import React from 'react';
-import Linking from 'expo-linking';
+import * as Linking from 'expo-linking';
 
 const AboutScreen = () => {
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>About This App</Text>
       <Text>Blah blah blah</Text>
-      <Text style={{color: 'blue'}}
-      onPress={() => Linking.openURL('http://google.com')}>
-      Google
+      <Text>
+        Made by:
+        {'\n'}Glykeria{'\n'}Jonathan{'\n'}Karsten{'\n'}Miranda{'\n'}Tom
+      </Text>
+      <Text
+        style={styles.link}
+        onPress={() =>
+          Linking.openURL(
+            'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
+          )
+        }>
+        GitHub Repository
       </Text>
     </View>
   );
@@ -27,6 +34,9 @@ const styles = StyleSheet.create({
   heading: {
     fontWeight: 'bold',
     fontSize: 30,
+  },
+  link: {
+    color: 'blue',
   },
 });
 
