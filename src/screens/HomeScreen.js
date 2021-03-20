@@ -2,11 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
-import LicensePlateKey from '../../secrets/LicensePlateKey'
+import LicensePlateKey from '../../secrets/LicencePlateKey';
+import KMToMilesSwitch from '../switches/ToggleSwitch';
+import milesToKilometres from '../logic/MilesToKilometres';
 
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
+  const [value, setValue] = useState(false)
+  const KMDistance = milesToKilometres(value, distance)
 
   const handleSubmit = async () => {
     const headers = { 'x-api-key': `${LicensePlateKey}`, };
@@ -15,6 +19,7 @@ const HomeScreen = ({ navigation }) => {
       const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
       );
       const emissions = await response.data.co2Emissions
+      const distance = KMDistance
       await navigation.navigate('Results', { distance, emissions });
     } catch (error) {
       console.error(error);
@@ -37,6 +42,8 @@ const HomeScreen = ({ navigation }) => {
         color="orange"
         title="Click Me"
         onPress={() => { handleSubmit() }} />
+      <Text>{'\n'}</Text>
+      <View>{ KMToMilesSwitch(value, setValue) }</View>
     </View>
   );
 };
