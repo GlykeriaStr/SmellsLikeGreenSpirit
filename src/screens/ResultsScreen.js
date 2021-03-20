@@ -3,13 +3,13 @@ import React from 'react';
 import emissionsCalculator from '../logic/EmissionsCalculation';
 
 const ResultsScreen = ({ route }) => {
-  const { distance, emissions } = route.params
-  const result = emissionsCalculator(emissions, distance);
+  const { convertedDistance, emissions } = route.params;
+  const result = emissionsCalculator(emissions, convertedDistance);
 
   return (
-    <Text>
-      Your journey will release { result } grams of CO2.
-    </Text>
+    <View style={styles.container}>
+      <Text>Your journey will release {result} grams of CO2.</Text>
+    </View>
   );
 };
 

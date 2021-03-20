@@ -7,5 +7,5 @@ describe('MilesToKilometres', () => {
 
   it('returns the equivalent value in km when passed true and a number', () => {
     expect(milesToKilometres(true, 100)).toEqual(161);
-  })
+  });
 });

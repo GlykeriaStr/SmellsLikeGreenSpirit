@@ -2,25 +2,28 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
-import LicensePlateKey from '../../secrets/LicencePlateKey';
+import LicencePlateKey from '../../secrets/LicencePlateKey';
 import KMToMilesSwitch from '../switches/ToggleSwitch';
 import milesToKilometres from '../logic/MilesToKilometres';
 
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
-  const [value, setValue] = useState(false)
-  const KMDistance = milesToKilometres(value, distance)
+  const [value, setValue] = useState(false);
+  const KMDistance = milesToKilometres(value, distance);
 
   const handleSubmit = async () => {
-    const headers = { 'x-api-key': `${LicensePlateKey}`, };
-    const body = { "registrationNumber": plate };
+    const headers = { 'x-api-key': `${LicencePlateKey}` };
+    const body = { registrationNumber: plate };
     try {
-      const response = await axios.post('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', body, { headers }
+      const response = await axios.post(
+        'https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles',
+        body,
+        { headers },
       );
-      const emissions = await response.data.co2Emissions
-      const distance = KMDistance
-      await navigation.navigate('Results', { distance, emissions });
+      const emissions = await response.data.co2Emissions;
+      const convertedDistance = KMDistance;
+      await navigation.navigate('Results', { convertedDistance, emissions });
     } catch (error) {
       console.error(error);
     }
@@ -36,14 +39,17 @@ const HomeScreen = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="e.g. NT08 GBF"
-        onChangeText={(license) => setPlate(license)}
+        onChangeText={(licence) => setPlate(licence)}
       />
       <Button
         color="orange"
         title="Click Me"
-        onPress={() => { handleSubmit() }} />
+        onPress={() => {
+          handleSubmit();
+        }}
+      />
       <Text>{'\n'}</Text>
-      <View>{ KMToMilesSwitch(value, setValue) }</View>
+      <View>{KMToMilesSwitch(value, setValue)}</View>
     </View>
   );
 };
