@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
       const convertedDistance = KMDistance;
       await navigation.navigate('Results', { convertedDistance, emissions });
     } catch (error) {
-      console.error(error);
+      Alert.alert('Alert', 'This was not a valid licence plate number');
     }
   };
 
@@ -46,10 +46,9 @@ const HomeScreen = ({ navigation }) => {
         title="Click Me"
         onPress={() => {
           if (distance > 0) {
-            handleSubmit();
-          }else{
-            Alert.alert('Alert', 'Must be a positive number');
+            return handleSubmit();
           }
+          Alert.alert('Alert', 'Must be a positive number');
         }}
       />
       <Text>{'\n'}</Text>
