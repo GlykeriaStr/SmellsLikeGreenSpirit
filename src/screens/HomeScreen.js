@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { useState } from 'react';
 import axios from 'axios';
 import LicencePlateKey from '../../secrets/LicencePlateKey';
@@ -45,7 +45,11 @@ const HomeScreen = ({ navigation }) => {
         color="orange"
         title="Click Me"
         onPress={() => {
-          handleSubmit();
+          if (distance > 0) {
+            handleSubmit();
+          }else{
+            Alert.alert('Alert', 'Must be a positive number');
+          }
         }}
       />
       <Text>{'\n'}</Text>
