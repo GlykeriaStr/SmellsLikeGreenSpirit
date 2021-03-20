@@ -27,8 +27,8 @@
 ### End of Sprint
 
 - Glykeria 🍝
-- Karsten
-- Tom
+- Karsten 🐋
+- Tom 👀
 - Jon
 - Miranda 🥦 vegetable + feta tray bake
 
@@ -78,8 +78,46 @@
 - Working title: Spring Onion.
 - Decided not to merge the current working branches because the features aren't finished.
 
-- Glykeria :cake: (maybe) Shepherd’s pie
-- Karsten :beverage_box: Quorn and peas
-- Tom :full_moon_with_face: Chicken soup
-- Jon :palm_tree: Big Mac with 6 nuggets
-- Miranda :tropical_fish: stirfry maybe?
+- Glykeria 🍰 (maybe) Shepherd’s pie
+- Karsten 🧃 Quorn and peas
+- Tom 🌝 Chicken soup
+- Jon 🌴 Big Mac with 6 nuggets
+- Miranda 🐠 stirfry maybe?
+
+## 19 March 2021
+
+### Morning
+
+- Tom, Karsten and Jonathan worked on the toggle switch, trying to save the value of the toggle.
+- Miranda and Glykeria worked on the Licence number plate API.
+- Licence plate API team: Had problems with passing the API results to the next page, value seemed to have reset or was not set.
+- Miles to carbon API team: Had problems with getting miles and km text to be read above the toggle.
+
+
+### Afternoon
+
+- Licence plate API team: Navigation was going to the next page before the response of the API was rendered. Spoke to another member of the cohort. Who advised the team to put the navigation into the handle of the promise. In the end Licence plate API team came out victorious.
+- Miles to carbon API team: Had the toggle switch in a different file, they couldn't access the boolean value of the Switch. Called in the coach, they told us to have `useState` const in the same file we were trying access it.
+- Overall though, the team managed to complete the MVP 🎉🎉🎉
+
+## 20 March 2021
+
+### Morning
+
+- Logos were shown off, we went for Miranda's idea of the spring onion being represented by a car with a green exhaust coming out of it.
+- Miranda and Glykeria started to look at styling, but decided it would be best to leave it and have a look at some resources on styling.
+- Tom and Karsten managed to get the miles to km conversion working.
+- Project was linted and corrected the spelling of licence
+
+### Afternoon
+
+- Karsten and Miranda worked on the about page, just making sure that hyper links worked, managed to complete this task.
+- Glykeria and Tom worked on error messages appearing if the user were to input an invalid number or licence plate. They managed to get this working in no time.
+- Miranda and Karsten started to work on the messages for the results logic. Added a switch condition, needs to be updated with some R & D in place. 
+
+
+### End of Sprint
+- Glykeria 🔥 Vegan Shepherds' pie
+- Karsten 🎩 Quorn and peas
+- Tom 🐡 Oysters and ceviche
+- Miranda 💤 Roast potatoes (does not care what is with them)
