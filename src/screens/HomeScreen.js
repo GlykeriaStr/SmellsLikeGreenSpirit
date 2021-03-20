@@ -31,6 +31,14 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View>
+      <View>
+        <Button
+          title="About"
+          onPress={() => {
+            navigation.navigate('About');
+          }}
+        />
+      </View>
       <TextInput
         style={styles.input}
         placeholder="e.g. 50"
