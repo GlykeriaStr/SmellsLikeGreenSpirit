@@ -93,7 +93,6 @@
 - Licence plate API team: Had problems with passing the API results to the next page, value seemed to have reset or was not set.
 - Miles to carbon API team: Had problems with getting miles and km text to be read above the toggle.
 
-
 ### Afternoon
 
 - Licence plate API team: Navigation was going to the next page before the response of the API was rendered. Spoke to another member of the cohort. Who advised the team to put the navigation into the handle of the promise. In the end Licence plate API team came out victorious.
@@ -115,9 +114,9 @@
 - Glykeria and Tom worked on error messages appearing if the user were to input an invalid number or licence plate. They managed to get this working in no time.
 - Miranda and Karsten started to work on the messages for the results logic. Added a switch condition, needs to be updated with some R & D in place. 
 
-
 ### End of Sprint
 - Glykeria 🔥 Vegan Shepherds' pie
 - Karsten 🎩 Quorn and peas
 - Tom 🐡 Oysters and ceviche
 - Miranda 💤 Roast potatoes (does not care what is with them)
+- Jon 🌝  Home made pizza
