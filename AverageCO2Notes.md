@@ -18,3 +18,6 @@
   - 3.3 kg CO2e washed at 60°C, dried in a combined washer-dryer
 
 - The kitchen sink is actually the source of the most water-related carbon emissions in the home. Keeping the kitchen tap running leads to approximately 157kg of CO2 being released per year while the dishwasher produces 142kg of CO2, the washing machine generates 118kg and the bath creates 103kg. (In a newer home, however, the shower is the water-use device with the highest emissions.)
+
+https://www.theguardian.com/environment/green-living-blog/2010/nov/25/carbon-footprint-load-laundry
+https://www.bbc.com/future/article/20200326-the-hidden-impact-of-your-daily-water-use
