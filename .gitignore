@@ -1,3 +1,5 @@
+.env
+secrets/
 node_modules/**/*
 .expo/*
 npm-debug.*
