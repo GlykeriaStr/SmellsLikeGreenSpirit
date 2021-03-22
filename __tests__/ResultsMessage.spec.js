@@ -8,7 +8,11 @@ describe('ResultsMessage', () => {
   const microwave = context("using the microwave")
   const dishwasher = context("using the dishwasher")
   const weekendTV = context("a weekend watching TV")
-  const showering = context("showering every day for a week")
+  const showering = context("showering every day for a week or producing 1L of dairy milk")
+  const trainJourney = context("a 4hr train journey or producing a block of cheese")
+  const beefSteak = context("producing a beef steak")
+  const eurostar = context("a round trip to France using the Eurostar")
+  const londonDublin = context("London to Dublin by train/ferry or a flight from London to Leeds")
 
   it('Compliments user if they have 0 emissions', () => {
     expect(resultsMessage(0)).toEqual(compliment);
@@ -40,6 +44,22 @@ describe('ResultsMessage', () => {
 
   it('Compares users emissions to showering every day for a week', () => {
     expect(resultsMessage(3.5)).toEqual(showering)
+  })
+
+  it('Compares users emissions to a 4hr train journey', () => {
+    expect(resultsMessage(7.5)).toEqual(trainJourney)
+  })
+
+  it('Compares users emissions to producing a beef steak', () => {
+    expect(resultsMessage(15)).toEqual(beefSteak)
+  })
+
+  it('Compares users emissions to a trip to France using the Eurostar', () => {
+    expect(resultsMessage(35)).toEqual(eurostar)
+  })
+
+  it('Compares users emissions to a trip from London to Dublin using train and ferry', () => {
+    expect(resultsMessage(75)).toEqual(londonDublin)
   })
 });
 

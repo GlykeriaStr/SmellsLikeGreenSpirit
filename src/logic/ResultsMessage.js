@@ -15,8 +15,15 @@ function resultsMessage(result) {
     case(result < 2):
       return context("a weekend watching TV")
     case(result < 5):
-      return context("showering every day for a week")
-
+      return context("showering every day for a week or producing 1L of dairy milk")
+    case(result < 10):
+      return context("a 4hr train journey or producing a block of cheese")
+    case(result < 20):
+      return context("producing a beef steak")
+    case(result < 50):
+      return context("a round trip to France using the Eurostar")
+    case(result < 100):
+      return context("London to Dublin by train/ferry or a flight from London to Leeds")
   }
 }
 
