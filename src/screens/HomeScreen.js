@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { useState } from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 import axios from 'axios';
 import LicencePlateKey from '../../secrets/LicencePlateKey';
 import KMToMilesSwitch from '../switches/ToggleSwitch';
@@ -31,6 +32,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.body}>
+      <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <View>
         <Text
           style={styles.aboutButtonText}
@@ -49,9 +51,7 @@ const HomeScreen = ({ navigation }) => {
 
       <View style={styles.inputContainer}>
         <View style={styles.inputParent}>
-          <Text style={styles.licencePlateText}>
-            Licence Plate
-          </Text>
+          <Text style={styles.licencePlateText}>Licence Plate</Text>
         </View>
         <View style={styles.inputParent}>
           <TextInput
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   aboutButtonText: {
-    color: '#311844',
+    color: '#369',
     textAlign: 'right',
     fontFamily: 'Futura',
     paddingRight: 10,
@@ -174,6 +174,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     justifyContent: 'flex-end',
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 800,
   },
 });
 
