@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { Switch, View, Text, StyleSheet } from 'react-native';
 
 const KMToMilesSwitch = (switchValue, setSwitchValue) => {
   const toggleSwitch = (value) => {
@@ -7,34 +7,31 @@ const KMToMilesSwitch = (switchValue, setSwitchValue) => {
   };
 
   return (
-    <SafeAreaView>
-      <Text style={styles.toggleText}>{switchValue ? 'MILES' : 'KM'}</Text>
-      <View style={styles.container}>
+    <View style={styles.container}>
+        <Text style={styles.toggleText}>{switchValue ? 'MILES' : 'KM'}</Text>
         <Switch
           ios_backgroundColor="lightsteelblue"
-          trackColor={{ true: 'lightseagreen' }}
+          trackColor={{ true: '#336699' }}
           style={styles.switch}
           onValueChange={toggleSwitch}
           value={switchValue}
         />
-      </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
   toggleText: {
+    color: '#311844',
+    fontFamily: 'Futura',
     textAlign: 'center',
     color: 'black',
-    padding: 5,
-  },
-  switch: {
-    marginTop: 30,
+    paddingBottom: 2
   },
 });
 
