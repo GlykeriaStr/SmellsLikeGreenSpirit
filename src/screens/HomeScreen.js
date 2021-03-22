@@ -55,21 +55,83 @@ const HomeScreen = ({ navigation }) => {
           <Text>{'\n'}</Text>
         </Text>
       </View>
-      <View>
-        <Text style={styles.standardText}>Licence Plate</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="e.g. NT08 GBF"
-          onChangeText={(licence) => setPlate(licence)}
-        />
+
+      <View
+        style={{
+          // flex: 1,
+          alignItems: 'center',
+          borderWidth: 1,
+          borderColor: 'red',
+          // justifyContent: 'space-between',
+          flexDirection: 'row',
+        }}>
+        <View
+          style={{
+            flex: 1,
+            borderWidth: 1,
+            borderColor: 'purple',
+            justifyContent: 'flex-end',
+          }}>
+          <Text
+            style={{
+              alignSelf: 'flex-end',
+              borderWidth: 1,
+              borderColor: 'green',
+              color: '#311844',
+              fontSize: 20,
+              fontFamily: 'Futura',
+            }}>
+            Licence Plate
+          </Text>
+        </View>
+        <View style={{ flex: 1, borderWidth: 1, borderColor: 'orange' }}>
+          <TextInput
+            style={{
+              fontFamily: 'Futura',
+              borderWidth: 1,
+              borderColor: '#311844',
+              padding: 8,
+              margin: 10,
+              width: 120,
+            }}
+            placeholder="e.g. NT08 GBF"
+            onChangeText={(licence) => setPlate(licence)}
+          />
+        </View>
       </View>
-      <View>
-        {KMToMilesSwitch(value, setValue)}
-        <TextInput
-          style={styles.input}
-          placeholder="e.g. 50"
-          onChangeText={(val) => setDistance(val)}
-        />
+
+      <View
+        style={{
+          borderWidth: 1,
+          borderColor: 'blue',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            borderWidth: 1,
+            borderColor: 'black',
+            justifyContent: 'flex-end',
+            // alignSelf: 'flex-end',
+          }}>
+          {KMToMilesSwitch(value, setValue)}
+        </View>
+        <View style={{ flex: 1, borderWidth: 1, borderColor: '#666' }}>
+          <TextInput
+            style={{
+              fontFamily: 'Futura',
+              borderWidth: 1,
+              borderColor: '#311844',
+              padding: 8,
+              margin: 10,
+              width: 120,
+            }}
+            placeholder="e.g. 50"
+            onChangeText={(val) => setDistance(val)}
+          />
+        </View>
       </View>
       <Text
         style={styles.buttonText}
