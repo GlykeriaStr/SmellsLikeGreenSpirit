@@ -7,24 +7,22 @@ const KMToMilesSwitch = (switchValue, setSwitchValue) => {
   };
 
   return (
-    <SafeAreaView>
-      <Text style={styles.toggleText}>{switchValue ? 'MILES' : 'KM'}</Text>
-      <View style={styles.container}>
+    <View style={styles.container}>
+        <Text style={styles.toggleText}>{switchValue ? 'MILES' : 'KM'}</Text>
         <Switch
           ios_backgroundColor="lightsteelblue"
-          trackColor={{ true: 'lightseagreen' }}
+          trackColor={{ true: '#336699' }}
           style={styles.switch}
           onValueChange={toggleSwitch}
           value={switchValue}
         />
-      </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -33,10 +31,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Futura',
     textAlign: 'center',
     color: 'black',
-    padding: 5,
+    paddingBottom: 2
   },
   switch: {
-    marginTop: 30,
+    // marginTop: 30,
   },
 });
 
