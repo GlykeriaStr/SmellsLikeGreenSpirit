@@ -120,3 +120,20 @@
 - Tom 🐡 Oysters and ceviche
 - Miranda 💤 Roast potatoes (does not care what is with them)
 - Jon 🌝  Home made pizza
+
+## 22 March 2021
+
+### Morning
+
+- Talked about what we learnt about over the weekend.
+- Miranda was able to eject the project, with her dummy project, will see about doing this with the Spring onion project.
+- Miranda found a bug where small distances in miles were converted incorrectly.
+- Discussion on styling, and how we will go about designing the main page.
+- Tom and Miranda split off to work on the styling.
+- Glykeria and Karsten worked on giving the user some context about their carbon emissions.
+- Jonathan worked on fixing the aforementioned km to miles bug.
+- Alice spoke to the group about how to handle in app purchases, the group is leaning more towards bringing the user to a website which handles with carbon offset, perhaps the carbon emission data can be transferred across.
+- Miranda, Tom and Jonathan worked on styling and managed to liven up the main page.
+- Karsten and Glykeria got the context all working.
+
+### Afternoon
