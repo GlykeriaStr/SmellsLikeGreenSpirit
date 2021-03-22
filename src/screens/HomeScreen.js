@@ -42,92 +42,33 @@ const HomeScreen = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.container}>
-        <Text
-          style={{
-            color: '#311844',
-            padding: 20,
-            fontFamily: 'Futura',
-            fontSize: 30,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          How much CO2{'\n'}will your journey{'\n'}release?
-          <Text>{'\n'}</Text>
-        </Text>
+        <Text style={styles.bigText}>How much CO2</Text>
+        <Text style={styles.bigText}>will your journey</Text>
+        <Text style={styles.bigText}>release?</Text>
       </View>
 
-      <View
-        style={{
-          // flex: 1,
-          alignItems: 'center',
-          borderWidth: 1,
-          borderColor: 'red',
-          // justifyContent: 'space-between',
-          flexDirection: 'row',
-        }}>
-        <View
-          style={{
-            flex: 1,
-            borderWidth: 1,
-            borderColor: 'purple',
-            justifyContent: 'flex-end',
-          }}>
-          <Text
-            style={{
-              alignSelf: 'flex-end',
-              borderWidth: 1,
-              borderColor: 'green',
-              color: '#311844',
-              fontSize: 20,
-              fontFamily: 'Futura',
-            }}>
+      <View style={styles.inputContainer}>
+        <View style={styles.inputParent}>
+          <Text style={styles.licencePlateText}>
             Licence Plate
           </Text>
         </View>
-        <View style={{ flex: 1, borderWidth: 1, borderColor: 'orange' }}>
+        <View style={styles.inputParent}>
           <TextInput
-            style={{
-              fontFamily: 'Futura',
-              borderWidth: 1,
-              borderColor: '#311844',
-              padding: 8,
-              margin: 10,
-              width: 120,
-            }}
+            style={styles.textInput}
             placeholder="e.g. NT08 GBF"
             onChangeText={(licence) => setPlate(licence)}
           />
         </View>
       </View>
 
-      <View
-        style={{
-          borderWidth: 1,
-          borderColor: 'blue',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            flex: 1,
-            borderWidth: 1,
-            borderColor: 'black',
-            justifyContent: 'flex-end',
-            // alignSelf: 'flex-end',
-          }}>
+      <View style={styles.inputContainer}>
+        <View style={styles.kmToMilesText}>
           {KMToMilesSwitch(value, setValue)}
         </View>
-        <View style={{ flex: 1, borderWidth: 1, borderColor: '#666' }}>
+        <View style={styles.inputParent}>
           <TextInput
-            style={{
-              fontFamily: 'Futura',
-              borderWidth: 1,
-              borderColor: '#311844',
-              padding: 8,
-              margin: 10,
-              width: 120,
-            }}
+            style={styles.textInput}
             placeholder="e.g. 50"
             onChangeText={(val) => setDistance(val)}
           />
@@ -158,6 +99,17 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
+    paddingBottom: 30,
+    paddingTop: 60,
+  },
+  bigText: {
+    color: '#311844',
+    padding: 3,
+    paddingBottom: 10,
+    fontFamily: 'Futura',
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   aboutButtonText: {
     color: '#311844',
@@ -165,6 +117,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Futura',
     paddingRight: 10,
     paddingTop: 10,
+    fontSize: 20,
   },
   buttonText: {
     fontWeight: 'bold',
@@ -186,6 +139,41 @@ const styles = StyleSheet.create({
     color: '#311844',
     fontSize: 20,
     fontFamily: 'Futura',
+  },
+  inputContainer: {
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'red',
+    flexDirection: 'row',
+  },
+  inputParent: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: 'purple',
+    justifyContent: 'flex-end',
+  },
+  licencePlateText: {
+    alignSelf: 'flex-end',
+    borderWidth: 1,
+    borderColor: 'green',
+    color: '#311844',
+    fontSize: 20,
+    fontFamily: 'Futura',
+  },
+  textInput: {
+    fontFamily: 'Futura',
+    borderWidth: 1,
+    borderColor: '#311844',
+    padding: 8,
+    margin: 10,
+    width: 120,
+  },
+  kmToMilesText: {
+    flexDirection: 'row',
+    flex: 1,
+    borderWidth: 1,
+    borderColor: 'black',
+    justifyContent: 'flex-end',
   },
 });
 
