@@ -1,20 +1,14 @@
 function resultsMessage(result) {
-  switch (result) {
-    case 0:
-      return "Well done! Thanks for thinking about the planet"
+  switch (true) {
+    case(result === 0):
+      return "Well done! Thanks for thinking about the planet";
+    case(result < 0.06):
+      return context("boiling a kettle or watching 10hrs of YouTube")
   }
 }
 
 export default resultsMessage 
+export function context(comparison) {
+  return `This is equivalent to ${comparison}`
+}
 
-// switch (expr) {
-//   case 'Oranges':
-//     console.log('Oranges are $0.59 a pound.');
-//     break;
-//   case 'Mangoes':
-//   case 'Papayas':
-//     console.log('Mangoes and papayas are $2.79 a pound.');
-//     break;
-//   default:
-//     console.log(`Sorry, we are out of ${expr}.`);
-// }
