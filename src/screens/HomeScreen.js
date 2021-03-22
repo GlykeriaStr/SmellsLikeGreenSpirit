@@ -42,8 +42,16 @@ const HomeScreen = ({ navigation }) => {
         </Text>
       </View>
       <View style={styles.container}>
-        <Text style={styles.standardText}>
-          How much CO2 will your journey release?
+        <Text
+          style={{
+            color: '#311844',
+            padding: 20,
+            fontFamily: 'Futura',
+            fontSize: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          How much CO2{'\n'}will your journey{'\n'}release?
           <Text>{'\n'}</Text>
         </Text>
       </View>
@@ -73,7 +81,7 @@ const HomeScreen = ({ navigation }) => {
           }
           Alert.alert('Warning', 'Distance must be a positive number');
         }}>
-        Click Me
+        CALCULATE
       </Text>
       <Text>{'\n'}</Text>
     </View>
@@ -90,12 +98,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   aboutButtonText: {
+    color: '#311844',
     textAlign: 'right',
     fontFamily: 'Futura',
     paddingRight: 10,
     paddingTop: 10,
   },
   buttonText: {
+    fontWeight: 'bold',
+    color: '#4F8B3A',
+    fontSize: 30,
     padding: 50,
     textAlign: 'center',
     fontFamily: 'Futura',
@@ -103,12 +115,14 @@ const styles = StyleSheet.create({
   input: {
     fontFamily: 'Futura',
     borderWidth: 1,
-    borderColor: '#777',
+    borderColor: '#311844',
     padding: 8,
     margin: 10,
     width: 100,
   },
   standardText: {
+    color: '#311844',
+    fontSize: 20,
     fontFamily: 'Futura',
   },
 });
