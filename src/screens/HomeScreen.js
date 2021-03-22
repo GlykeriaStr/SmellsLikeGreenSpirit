@@ -41,16 +41,28 @@ const HomeScreen = ({ navigation }) => {
           About
         </Text>
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="e.g. 50"
-        onChangeText={(val) => setDistance(val)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="e.g. NT08 GBF"
-        onChangeText={(licence) => setPlate(licence)}
-      />
+      <View style={styles.container}>
+        <Text style={styles.standardText}>
+          How much CO2 will your journey release?
+          <Text>{'\n'}</Text>
+        </Text>
+      </View>
+      <View>
+        <Text style={styles.standardText}>Licence Plate</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="e.g. NT08 GBF"
+          onChangeText={(licence) => setPlate(licence)}
+        />
+      </View>
+      <View>
+        {KMToMilesSwitch(value, setValue)}
+        <TextInput
+          style={styles.input}
+          placeholder="e.g. 50"
+          onChangeText={(val) => setDistance(val)}
+        />
+      </View>
       <Text
         style={styles.buttonText}
         color="orange"
@@ -64,7 +76,6 @@ const HomeScreen = ({ navigation }) => {
         Click Me
       </Text>
       <Text>{'\n'}</Text>
-      <View>{KMToMilesSwitch(value, setValue)}</View>
     </View>
   );
 };
@@ -76,15 +87,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Bodoni Ornaments',
   },
   container: {
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   aboutButtonText: {
     textAlign: 'right',
     fontFamily: 'Futura',
+    paddingRight: 10,
+    paddingTop: 10,
   },
   buttonText: {
+    padding: 50,
     textAlign: 'center',
     fontFamily: 'Futura',
   },
@@ -95,6 +107,9 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 100,
+  },
+  standardText: {
+    fontFamily: 'Futura',
   },
 });
 
