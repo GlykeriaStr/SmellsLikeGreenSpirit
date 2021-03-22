@@ -19,7 +19,7 @@ describe('ResultsMessage', () => {
   const bangladesh = context("the annual per capita CO2 emissions for a Bangladeshi person")
   const cambodia = context("the annual per capita CO2 emissions for Cambodia")
   const nicaragua = context("the annual per capita CO2 emissions for Nicaragua")
-  const reconsider = "Unless this journey is essential, please re-consider!"
+  const reconsider = "Unless this journey is essential, please reconsider!"
 
   it('Compliments user if they have 0 emissions', () => {
     expect(resultsMessage(0)).toEqual(compliment);

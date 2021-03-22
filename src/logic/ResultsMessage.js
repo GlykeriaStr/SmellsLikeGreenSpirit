@@ -37,7 +37,7 @@ export function resultsMessage(result) {
     case(result < 1000):
       return context("the annual per capita CO2 emissions for Nicaragua")
     case(result >= 1000):
-      return "Unless this journey is essential, please re-consider!"
+      return "Unless this journey is essential, please reconsider!"
   }
 }
 
