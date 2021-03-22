@@ -23,7 +23,15 @@ function resultsMessage(result) {
     case(result < 50):
       return context("a round trip to France using the Eurostar")
     case(result < 100):
-      return context("London to Dublin by train/ferry or a flight from London to Leeds")
+      return context("a trip from London to Dublin by train/ferry or a flight from London to Leeds")
+    case(result < 200):
+      return context("a flight from London Heathrow to Edinburgh")
+    case(result < 300):
+      return context("a flight from London Heathrow to Lisbon")
+    case(result < 400):
+      return context("a single bitcoin transaction")
+    case(result < 500):
+      return context("the annual per capita CO2 emissions for a Bangladeshi person")
   }
 }
 

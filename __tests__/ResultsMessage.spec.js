@@ -12,8 +12,11 @@ describe('ResultsMessage', () => {
   const trainJourney = context("a 4hr train journey or producing a block of cheese")
   const beefSteak = context("producing a beef steak")
   const eurostar = context("a round trip to France using the Eurostar")
-  const londonDublin = context("London to Dublin by train/ferry or a flight from London to Leeds")
-
+  const londonDublin = context("a trip from London to Dublin by train/ferry or a flight from London to Leeds")
+  const londonEdinburgh = context("a flight from London Heathrow to Edinburgh")
+  const londonLisbon = context("a flight from London Heathrow to Lisbon")
+  const bitcoin = context("a single bitcoin transaction")
+  const bangladesh = context("the annual per capita CO2 emissions for a Bangladeshi person")
   it('Compliments user if they have 0 emissions', () => {
     expect(resultsMessage(0)).toEqual(compliment);
   });
@@ -60,6 +63,22 @@ describe('ResultsMessage', () => {
 
   it('Compares users emissions to a trip from London to Dublin using train and ferry', () => {
     expect(resultsMessage(75)).toEqual(londonDublin)
+  })
+
+  it('Compares users emissions to a trip from LHR to Edinburgh', () => {
+    expect(resultsMessage(150)).toEqual(londonEdinburgh)
+  })
+  
+  it('Compares users emissions to a trip from LHR to Lisbon', () => {
+    expect(resultsMessage(250)).toEqual(londonLisbon)
+  })
+
+  it('Compares users emissions to a single bitcoin transaction', () => {
+    expect(resultsMessage(350)).toEqual(bitcoin)
+  })
+
+  it('Compares users emissions to the annual per capita CO2 emissions for a Bangladeshi person', () => {
+    expect(resultsMessage(450)).toEqual(bangladesh)
   })
 });
 
