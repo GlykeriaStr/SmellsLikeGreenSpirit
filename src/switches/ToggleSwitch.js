@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { Switch, View, Text, StyleSheet } from 'react-native';
 
 const KMToMilesSwitch = (switchValue, setSwitchValue) => {
   const toggleSwitch = (value) => {
@@ -32,9 +32,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     paddingBottom: 2
-  },
-  switch: {
-    // marginTop: 30,
   },
 });
 

@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
   body: {
     flex: 10,
     backgroundColor: '#f4f4f8',
-    fontFamily: 'Bodoni Ornaments',
   },
   container: {
     alignItems: 'center',
