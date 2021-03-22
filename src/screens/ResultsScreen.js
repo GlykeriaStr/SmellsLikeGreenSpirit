@@ -8,7 +8,7 @@ const ResultsScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Your journey will release {result} grams of CO2.</Text>
+      <Text>Your journey will release {result} kilograms of CO2.</Text>
     </View>
   );
 };
