@@ -32,6 +32,12 @@ function resultsMessage(result) {
       return context("a single bitcoin transaction")
     case(result < 500):
       return context("the annual per capita CO2 emissions for a Bangladeshi person")
+    case(result < 800):
+      return context("the annual per capita CO2 emissions for Cambodia")
+    case(result < 1000):
+      return context("the annual per capita CO2 emissions for Nicaragua")
+    case(result >= 1000):
+      return "Unless this journey is essential, please re-consider!"
   }
 }
 

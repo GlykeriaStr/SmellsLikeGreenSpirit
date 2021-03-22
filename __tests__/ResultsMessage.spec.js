@@ -17,6 +17,10 @@ describe('ResultsMessage', () => {
   const londonLisbon = context("a flight from London Heathrow to Lisbon")
   const bitcoin = context("a single bitcoin transaction")
   const bangladesh = context("the annual per capita CO2 emissions for a Bangladeshi person")
+  const cambodia = context("the annual per capita CO2 emissions for Cambodia")
+  const nicaragua = context("the annual per capita CO2 emissions for Nicaragua")
+  const reconsider = "Unless this journey is essential, please re-consider!"
+
   it('Compliments user if they have 0 emissions', () => {
     expect(resultsMessage(0)).toEqual(compliment);
   });
@@ -80,6 +84,19 @@ describe('ResultsMessage', () => {
   it('Compares users emissions to the annual per capita CO2 emissions for a Bangladeshi person', () => {
     expect(resultsMessage(450)).toEqual(bangladesh)
   })
+
+  it('Compares users emissions to the annual per capita CO2 emissions for Cambodia', () => {
+    expect(resultsMessage(700)).toEqual(cambodia)
+  })
+
+  it('Compares users emissions to the annual per capita CO2 emissions for Nicaragua', () => {
+    expect(resultsMessage(900)).toEqual(nicaragua)
+  })
+
+  it('Tells ths user that they should reconsider their journey', () => {
+    expect(resultsMessage(1001)).toEqual(reconsider)
+  })
+  
 });
 
 function context(comparison) {
