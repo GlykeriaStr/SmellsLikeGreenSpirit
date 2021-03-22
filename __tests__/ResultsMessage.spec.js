@@ -1,4 +1,4 @@
-import resultsMessage  from '../src/logic/ResultsMessage';
+import { resultsMessage, context}  from '../src/logic/ResultsMessage';
 
 describe('ResultsMessage', () => {
   const compliment = "Well done! Thanks for thinking about the planet."
@@ -98,7 +98,3 @@ describe('ResultsMessage', () => {
   })
   
 });
-
-function context(comparison) {
-  return `This is equivalent to ${comparison}.`
-}
