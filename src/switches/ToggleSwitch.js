@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   toggleText: {
+    fontFamily: 'Futura',
     textAlign: 'center',
     color: 'black',
     padding: 5,

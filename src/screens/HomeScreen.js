@@ -30,14 +30,16 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
-    <View>
+    <View style={styles.body}>
       <View>
-        <Button
+        <Text
+          style={styles.aboutButtonText}
           title="About"
           onPress={() => {
             navigation.navigate('About');
-          }}
-        />
+          }}>
+          About
+        </Text>
       </View>
       <TextInput
         style={styles.input}
@@ -49,7 +51,8 @@ const HomeScreen = ({ navigation }) => {
         placeholder="e.g. NT08 GBF"
         onChangeText={(licence) => setPlate(licence)}
       />
-      <Button
+      <Text
+        style={styles.buttonText}
         color="orange"
         title="Click Me"
         onPress={() => {
@@ -57,8 +60,9 @@ const HomeScreen = ({ navigation }) => {
             return handleSubmit();
           }
           Alert.alert('Warning', 'Distance must be a positive number');
-        }}
-      />
+        }}>
+        Click Me
+      </Text>
       <Text>{'\n'}</Text>
       <View>{KMToMilesSwitch(value, setValue)}</View>
     </View>
@@ -66,13 +70,26 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  body: {
+    flex: 10,
+    backgroundColor: '#f4f4f8',
+    fontFamily: 'Bodoni Ornaments',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  aboutButtonText: {
+    textAlign: 'right',
+    fontFamily: 'Futura',
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontFamily: 'Futura',
+  },
   input: {
+    fontFamily: 'Futura',
     borderWidth: 1,
     borderColor: '#777',
     padding: 8,
