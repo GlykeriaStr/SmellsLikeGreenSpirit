@@ -1,39 +1,64 @@
+<p  align="center">
+<img src="./assets/spring_onion_splash3.png" width="200" height="200" alt="Logo"></img>
+<br />
+<br />
+
 <img  alt="Version"  src="https://img.shields.io/badge/version-1.0.0-brightgreen.svg?style=for-the-badge"  />
 
 <img  alt="Version"  src="https://img.shields.io/badge/contributors-5-brightgreen?style=for-the-badge"  />
 
 <img  alt="Version"  src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen?style=for-the-badge"  />
 
-<img  alt="Version"  src="https://img.shields.io/badge/yarn-1.22.10-brightgreen?style=for-the-badge"  />
+<img  alt="Version"  src="https://img.shields.io/badge/last_commit-march-brightgreen?style=for-the-badge"  />
+
+<img  alt="Version"  src="https://img.shields.io/badge/react_native-0.64-brightgreen?style=for-the-badge"  />
 
 <img  alt="Version"  src="https://img.shields.io/badge/yarn-1.22.10-brightgreen?style=for-the-badge"  />
 
-
-# SmellsLikeGreenSpirit
 
 ## About
 
-We decided to build an app that would allow users to be able to calculate the carbon footprint of car journeys. The user can input their licence plate and the distance travelled and the app returns the amount of CO2 consumed, as well as activities that would consume a similar amount of CO2. There is also a link to an organisation that allows the user to pay to offset their carbon emissions.
+Spring Onion is a mobile app on iOS and Android that allow users to be able to calculate the carbon footprint of car journeys.
 
-We used React Native to create an E2E mobile app experience for the user. Our app is a one stop shop for the environmentally conscious who want to limit the impact of their daily activities on global warming by taking steps to offset their CO2 emissions.
+All you need to know is your licence plate and the distance travelled and the app returns the amount of CO2 consumed, as well as other regular activities that consume a similar amount of CO2 for comparison. If you'd like to donate to offset your carbon emissions, you can follow a link to our chosen environmental organisation where a one-off payment can be made.
 
-Check out our demo video (DEMO) to see how the application works in practice!
+This project was built in the final two weeks at Makers Academy. We used React Native to create an E2E mobile app experience for the user. Our app is a one stop shop for environmentally conscious users that are looking to limit their contribution to global warming, no matter how small.
+
+Check out our demo video (DEMO) to see how the app works in practice!
 
 ## Technologies used
 
 Area | Technology
 ---- | ----
-Framework | React Native
-Language | Javascript/JSX
+Framework | React Native, Expo
+Language | Javascript, JSX
 Emulators | Xcode, Android Studio
 
-## Team SmellsLikeGreenSpirit
+## Smells Like Green Spirit - The Development Team
 
-[Glykeria Stravodimou](https://github.com/GlykeriaStr)
+[Glykeria Stravodimou](https://github.com/GlykeriaStr)  
 [Jonathan Dawson](https://github.com/KarstenFinlay)  
 [Karsten Finlay](https://github.com/bullhornfixie)  
 [Miranda Wilson](https://github.com/mscwilson)  
 [Tom Twigden](https://github.com/twigz826)
+
+## How To Run
+
+1) Clone this repository by entering `git clone https://github.com/GlykeriaStr/SmellsLikeGreenSpirit.git` in your terminal
+
+2) Navigate to the root directory of the project
+
+3) Enter `yarn install` in your terminal to install dependencies
+
+4) Open a simulator for iOS using `yarn ios` (you must have Xcode installed), for Android open using the simulator of your choice.
+
+5) Follow the prompts on the home screen
+
+## Learning
+
+Check out our learning log [here](https://github.com/GlykeriaStr/SmellsLikeGreenSpirit/blob/main/Documenting-Learning.md).
+
+Check out our team charter [here](https://docs.google.com/document/d/15LuIkztoejXSH3xnyBak-b4HoZsaHOXN011JJEcq4zk/edit).
 
 ## User Stories
  ```
