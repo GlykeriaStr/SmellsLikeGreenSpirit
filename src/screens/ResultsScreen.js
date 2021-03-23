@@ -2,15 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import emissionsCalculator from '../logic/EmissionsCalculation';
 import { resultsMessage } from '../logic/ResultsMessage';
-import Webview from './Webview';
-
 
 const ResultsScreen = ({ navigation, route }) => {
   const { convertedDistance, emissions } = route.params;
   const result = emissionsCalculator(emissions, convertedDistance);
   const comparison = resultsMessage(result);
 
-  return  (
+  return (
     <View style={styles.container}>
       <Text>Your journey will release {result} kilograms of CO2.</Text>
       <Text>{'\n'}</Text>
@@ -19,10 +17,7 @@ const ResultsScreen = ({ navigation, route }) => {
       {result !== 0 ? (
         <Text
           style={styles.link}
-          onPress={() => (
-            console.log('Inside on press')
-            navigation.navigate('Webview')
-          )}>
+          onPress={() => navigation.navigate('Offsets')}>
           How you can help!
         </Text>
       ) : null}
