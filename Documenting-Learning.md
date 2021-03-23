@@ -149,4 +149,19 @@
 
 ### Morning
 
+- Had a talk about team dynamics, and how to improve them for the future.
+- Miranda and Glykeria worked on Out of app purchases.
+- Karsten, Tom and Jonathan worked on trying to implement secure storage.
+- Glykeria and Miranda were able to get the hyper link embedded within the actual app.
+- Tom, Jonathan and Karsten were struggling, decided to take a break and ask other members of teh cohort how they managed to implement it.
+
 ### Afternoon
+
+- 
+
+### End of Sprint
+- Glykeria 🤬 Pasta with broccoli, lemon, garlic and cream
+- Karsten 🥔 Quorn, peas and a fried egg
+- Tom 💩 Lentil, rice and veggie stew
+- Miranda 💀 Kale and pasta
+- Jon 🔋 Thai fish noodle soup
