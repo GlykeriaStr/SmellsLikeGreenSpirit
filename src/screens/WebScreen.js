@@ -7,7 +7,16 @@ export default MyWeb = ({ route }) => {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
   const { result } = route.params;
-  const code = "console.log('This is javascript')";
+  const code = `window.getElementById(‘input_7_3’).value = '${result}'`;
+  const workingCode = 'window.alert("this works")';
+  const jscode = `
+  if (window.getElementById('input_7_3') == null) {
+      window.alert('no element')
+    } else {
+      window.getElementById('input_7_3').value = '${result}';
+    }
+`;
+
   return (
     <View style={{ flex: 1 }}>
       {!isLoaded ? (
@@ -27,9 +36,9 @@ export default MyWeb = ({ route }) => {
         style={{ marginTop: 20 }}
         onMessage={() => console.log('onMessage')}
         // javaScriptEnabled={true}
-        injectedJavaScript="window.alert('hello')"
+        injectedJavaScript={workingCode}
         onLoadProgress={({ nativeEvent }) => {
-          setProgress(nativeEvent.progress), console.log('onloadprogress');
+          setProgress(nativeEvent.progress), console.log(code);
         }}
         onLoadEnd={() => {
           setLoaded(true), console.log('onloadend');
