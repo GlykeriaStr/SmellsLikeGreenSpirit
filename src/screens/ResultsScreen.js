@@ -14,13 +14,36 @@ const ResultsScreen = ({ route }) => {
   const emissionsValue = result;
   const combined = [convertedDistanceValue, emissionsValue]
 
-  save("storageKey", JSON.stringify(combined));
-  var date = getValueFor("storageKey");
-  date.then(response => response.json())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(err => console.error(err));
+  class SavedValues {
+    constructor(convertedDistanceValue, emissionsValue, dateForStorage) {
+      this.convertedDistanceValue = convertedDistanceValue
+      this.emissionsValue = emissionsValue
+      this.dateForStorage = dateForStorage
+    }
+  }
+
+  async function retrieveValue(key) {
+    let today = new Date();
+    let stringifiedDate = JSON.stringify(today);
+    let storageDate = stringifiedDate.substring(1, 11);
+    let values = new SavedValues(convertedDistanceValue, emissionsValue, storageDate)
+    save(key, JSON.stringify(values));
+    var x = await getValueFor(key);
+    var y = JSON.parse(x);
+    console.log(y.emissionsValue);
+    console.log(y.convertedDistanceValue);
+    console.log(y.dateForStorage);
+
+  }
+
+  retrieveValue("storageKey");
+  // console.log(JSON.parse(x));
+
+  // date.then(response => response.json())
+  //   .then(data => {
+  //     console.log(data);
+  //   })
+  //   .catch(err => console.error(err));
   // console.log(date);
 
   return (
@@ -28,6 +51,7 @@ const ResultsScreen = ({ route }) => {
       <Text>Your journey will release {result} kilograms of CO2.</Text>
       <Text>{'\n'}</Text>
       <Text>{comparison}</Text>
+      <Text>{}</Text>
     </View>
   );
 };
