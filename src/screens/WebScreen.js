@@ -7,15 +7,8 @@ export default MyWeb = ({ route }) => {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
   const { result } = route.params;
-  const code = `window.getElementById(‘input_7_3’).value = '${result}'`;
-  const workingCode = 'window.alert("this works")';
-  const jscode = `
-  if (window.getElementById('input_7_3') == null) {
-      window.alert('no element')
-    } else {
-      window.getElementById('input_7_3').value = '${result}';
-    }
-`;
+  const code = `
+  document.getElementById('input_7_3').value = ${result}`;
 
   return (
     <View style={{ flex: 1 }}>
@@ -31,14 +24,13 @@ export default MyWeb = ({ route }) => {
       <WebView
         source={{
           uri:
-            'https://www.clevel.co.uk/offset-a-desired-amount-of-co2#gform_wrapper_7',
+            'https://www.clevel.co.uk/offset-a-desired-amount-of-co2/#gform_wrapper_7',
         }}
         style={{ marginTop: 20 }}
         onMessage={() => console.log('onMessage')}
-        // javaScriptEnabled={true}
-        injectedJavaScript={workingCode}
+        injectedJavaScript={code}
         onLoadProgress={({ nativeEvent }) => {
-          setProgress(nativeEvent.progress), console.log(code);
+          setProgress(nativeEvent.progress);
         }}
         onLoadEnd={() => {
           setLoaded(true), console.log('onloadend');
