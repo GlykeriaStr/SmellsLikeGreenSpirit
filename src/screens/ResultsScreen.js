@@ -17,7 +17,7 @@ const ResultsScreen = ({ navigation, route }) => {
       {result !== 0 ? (
         <Text
           style={styles.link}
-          onPress={() => navigation.navigate('Offsets')}>
+          onPress={() => navigation.navigate('Offsets', { result })}>
           How you can help!
         </Text>
       ) : null}
