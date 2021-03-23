@@ -137,3 +137,16 @@
 - Karsten and Glykeria got the context all working.
 
 ### Afternoon
+
+- Tom and Miranada carried on with the styling for the app.
+- Glykeria and Karsten put in a hyper link to a carbon offset app which Tom found.
+- Jonathan went away to work on animations for result page.
+- Miranda and Tom cleaned the home page layout so that it was more presentable.
+- Karsten and Glykeria got a hyper link working, however couldn't fill in the carbon emissions with the data from the app.
+- Jonathan got the basics of the animation in code, but still needs to implement the animation.
+
+## 23 March 2021
+
+### Morning
+
+### Afternoon
