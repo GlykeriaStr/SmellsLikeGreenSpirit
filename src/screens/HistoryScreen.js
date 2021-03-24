@@ -10,8 +10,7 @@ const HistoryScreen = ({ navigation }) => {
 
   useEffect(() => {
     let cancelled = false;
-    console.log(`here in useEffect, cancelled is ${cancelled}`);
-
+    // console.log(`here in useEffect, cancelled is ${cancelled}`);
     const getHistory = async () => {
       // console.log('here in getHistory');
       const journeyHistoryString = await getValueFor();
@@ -19,30 +18,20 @@ const HistoryScreen = ({ navigation }) => {
         if (journeyHistoryString) {
           let journeyHistoryArray = JSON.parse(journeyHistoryString);
           setHistory(journeyHistoryArray);
-          return (cancelled = true);
+          // console.log(history);
+          // return (cancelled = true);
         } else {
           setHistory(false);
         }
       }
     };
-
     getHistory().catch((error) => console.error(`There's an error: ${error}`));
-
     return () => {
       cancelled = true;
     };
-  });
+  }, []);
 
-  // async function getHistory() {
-  //   console.log('here in IIFE');
-  //   let journeyHistoryString = await getValueFor();
-  //   if (journeyHistoryString) {
-  //     let journeyHistoryArray = JSON.parse(journeyHistoryString);
-  //     setHistory(journeyHistoryArray);
-  //   }
-  // }
-
-  // getHistory();
+  console.log(history);
 
   function totalEmissions(journeys) {
     let result = 0;

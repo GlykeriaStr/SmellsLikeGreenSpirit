@@ -21,12 +21,12 @@ const ResultsScreen = ({ navigation, route }) => {
     let storageDate = getDate();
     return {
       distanceKm: convertedDistance,
-      emissionsValue: emissions,
+      emissionsValue: result,
       date: storageDate,
     };
   }
 
-  // save(createValue());
+  save(createValue());
   // deleteKey('journeys');
 
   return (
