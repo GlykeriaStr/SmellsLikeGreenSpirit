@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import * as Linking from 'expo-linking';
+
 
 const AboutScreen = ({ navigation }) => {
   return (
@@ -13,11 +13,7 @@ const AboutScreen = ({ navigation }) => {
       </Text>
       <Text
         style={styles.link}
-        onPress={() =>
-          Linking.openURL(
-            'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
-          )
-        }>
+        onPress={() => navigation.navigate('GitHub')}>
         GitHub Repository
       </Text>
       <Text

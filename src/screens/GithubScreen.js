@@ -3,8 +3,7 @@ import { View } from 'react-native';
 import * as Progress from 'react-native-progress';
 import { WebView } from 'react-native-webview';
 
-export default MyWeb = ({ route }) => {
-  const { url } = route.params;
+export default MyWeb = () => {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
 
@@ -21,7 +20,7 @@ export default MyWeb = ({ route }) => {
       ) : null}
       <WebView
         source={{
-          uri: url,
+          uri:  'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
         }}
         style={{ marginTop: 20 }}
         onLoadProgress={({ nativeEvent }) => {
