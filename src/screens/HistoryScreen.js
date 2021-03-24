@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 const HistoryScreen =() => {
+  const journeys = [ { distance: 1, emissions: 5, date: "2021/03/24" }, { distance: 2, emissions: 6, date: "2021/03/24" } ]
 
 return(
 <View>
@@ -13,8 +15,24 @@ return(
     }}>
     About
  </Text>
+ <Text
+   style={styles.bigText}>Your Journeys</Text>
+ <Text>
+   Your total list of journeys to date is (x = number of journeys) and you have released y
+   kilograms of CO2.
+ </Text>
+ <Text>{"\n"}</Text>
+ <FlatList
+   data={[
+     { distance: 1, emissions: 5},
+   ]}
+  renderItem={({item}) => <Text>{item.distance}</Text>}
+/>
+   
 </View>)
 };
+
+
 
 
 const styles = StyleSheet.create({
