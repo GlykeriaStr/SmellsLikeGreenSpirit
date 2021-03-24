@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ResultsScreen from '../screens/ResultsScreen';
 import AboutScreen from '../screens/AboutScreen';
 import EmissionsFactsScreen from '../screens/EmissionsFactsScreen';
+import ResourceWebScreen from '../screens/ResourceWebScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ const AppNavigator = () => {
         <Stack.Screen name="Results" component={ResultsScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
         <Stack.Screen name="Emissions Facts" component={EmissionsFactsScreen} />
+        <Stack.Screen name="Carbon Data" component={ResourceWebScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

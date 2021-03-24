@@ -3,6 +3,10 @@ import React from 'react';
 import * as Linking from 'expo-linking';
 
 const EmissionsFactsScreen = ({ navigation }) => {
+  const guardian =
+    'https://www.theguardian.com/environment/green-living-blog/2010/nov/25/carbon-footprint-load-laundry';
+  const bbc =
+    'https://www.bbc.com/future/article/20200326-the-hidden-impact-of-your-daily-water-use';
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>About CO2 Emissions</Text>
@@ -31,9 +35,14 @@ const EmissionsFactsScreen = ({ navigation }) => {
         generates 118kg and the bath creates 103kg. (In a newer home, however,
         the shower is the water-use device with the highest emissions.) {'\n'}
         {'\n'}
-        https://www.theguardian.com/environment/green-living-blog/2010/nov/25/carbon-footprint-load-laundry{' '}
+        <Text
+          onPress={() => navigation.navigate('Carbon Data', { url: guardian })}>
+          {guardian}
+        </Text>
         {'\n'}
-        https://www.bbc.com/future/article/20200326-the-hidden-impact-of-your-daily-water-use
+        <Text onPress={() => navigation.navigate('Carbon Data', { url: bbc })}>
+          {bbc}
+        </Text>
       </Text>
     </View>
   );

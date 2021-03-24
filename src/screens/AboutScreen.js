@@ -20,7 +20,9 @@ const AboutScreen = ({ navigation }) => {
         }>
         GitHub Repository
       </Text>
-      <Text onPress={() => navigation.navigate('Emissions Facts')}>
+      <Text
+        style={styles.link}
+        onPress={() => navigation.navigate('Emissions Facts')}>
         Emissions Facts
       </Text>
     </View>
