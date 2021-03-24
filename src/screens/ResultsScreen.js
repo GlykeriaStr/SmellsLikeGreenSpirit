@@ -27,7 +27,7 @@ const ResultsScreen = ({ navigation, route }) => {
     };
   }
 
-  save(createValue());
+  // save(createValue());
   // deleteKey('journeys');
 
   // async function historyWait() {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { save, getValueFor, deleteKey } from '../logic/SecureStorage';
 
 const HistoryScreen = ({ navigation }) => {
@@ -8,20 +8,12 @@ const HistoryScreen = ({ navigation }) => {
 
   console.log('Here on HistoryScreen');
 
-  // const journeyHistory = getValueFor();
   (async function () {
     console.log('here in IIFE');
-    let journeyHistory = await getValueFor();
-    setHistory(journeyHistory);
-    // console.log(journeyHistory);
+    let journeyHistoryString = await getValueFor();
+    let journeyHistoryArray = JSON.parse(journeyHistoryString);
+    setHistory(journeyHistoryArray);
   })();
-  // console.log('This is the journey history:');
-  console.log(`history screen history: ${history}`);
-
-  const journeys = [
-    { key: 'key', distance: 1, emissions: 5, date: '2021/03/24' },
-    { key: 'id2', distance: 2, emissions: 6, date: '2021/03/24' },
-  ];
 
   function totalEmissions(journeys) {
     let result = 0;
@@ -30,7 +22,7 @@ const HistoryScreen = ({ navigation }) => {
     }
     return result;
   }
-  let totalEmissionsResult = totalEmissions(journeys);
+  let totalEmissionsResult = totalEmissions(history);
 
   return (
     <View>
@@ -45,16 +37,17 @@ const HistoryScreen = ({ navigation }) => {
       <Text style={styles.bigText}>Your Journeys</Text>
       <Text>
         You have released {totalEmissionsResult} kilograms of CO2 over{' '}
-        {journeys.length} journeys.
+        {history.length} journeys.
       </Text>
       <Text>{'\n'}</Text>
-      <Text>{history[0].key}</Text>
       <FlatList
+        // style={{ flex: 1 }}
         data={history}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>
-            On {item.date}: travelled {item.distance} km, {item.emissions} kg
+            On {item.date}: travelled {item.distanceKm} km,{' '}
+            {item.emissionsValue} kg
           </Text>
         )}
       />
