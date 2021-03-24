@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import emissionsCalculator from '../logic/EmissionsCalculation';
-import { resultsMessage, context } from '../logic/ResultsMessage';
+import { resultsMessage } from '../logic/ResultsMessage';
 
-const ResultsScreen = ({ route }) => {
+const ResultsScreen = ({ navigation, route }) => {
   const { convertedDistance, emissions } = route.params;
   const result = emissionsCalculator(emissions, convertedDistance);
   const comparison = resultsMessage(result);
@@ -13,6 +13,14 @@ const ResultsScreen = ({ route }) => {
       <Text>Your journey will release {result} kilograms of CO2.</Text>
       <Text>{'\n'}</Text>
       <Text>{comparison}</Text>
+      <Text>{'\n'}</Text>
+      {result !== 0 ? (
+        <Text
+          style={styles.link}
+          onPress={() => navigation.navigate('Offsets', { result })}>
+          How you can help!
+        </Text>
+      ) : null}
     </View>
   );
 };
@@ -30,6 +38,9 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 100,
+  },
+  link: {
+    color: 'blue',
   },
 });
 
