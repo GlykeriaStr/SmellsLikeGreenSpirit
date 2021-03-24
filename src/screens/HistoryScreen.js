@@ -2,42 +2,48 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
-const HistoryScreen =() => {
-  const journeys = [ { distance: 1, emissions: 5, date: "2021/03/24" }, { distance: 2, emissions: 6, date: "2021/03/24" } ]
+const HistoryScreen = () => {
+  const journeys = [
+    { key: 'key', distance: 1, emissions: 5, date: '2021/03/24' },
+    { key: 'id2', distance: 2, emissions: 6, date: '2021/03/24' },
+  ];
 
-return(
-<View>
- <Text
-    style={styles.aboutButtonText}
-    title="About"
-    onPress={() => {
-      navigation.navigate('About');
-    }}>
-    About
- </Text>
- <Text
-   style={styles.bigText}>Your Journeys</Text>
- <Text>
-   Your total list of journeys to date is (x = number of journeys) and you have released y
-   kilograms of CO2.
- </Text>
- <Text>{"\n"}</Text>
- <FlatList
-   data={[
-     { distance: 1, emissions: 5, date: "2021/03/24" },
-   ]}
-  renderItem={({item}) => 
-  <Text>Journey on {item.date} {"\n"}
-        Distance travelled: {item.distance} km {"\n"}
-        Emissions: {item.emissions} kg
-  </Text>}
-/>
-   
-</View>)
+  function totalEmissions(journeys) {
+    let result = 0;
+    for (let i = 0; i < journeys.length; i++) {
+      result += journeys[i].emissions;
+    }
+    return result;
+  }
+  let totalEmissionsResult = totalEmissions(journeys);
+
+  return (
+    <View>
+      <Text
+        style={styles.aboutButtonText}
+        title="About"
+        onPress={() => {
+          navigation.navigate('About');
+        }}>
+        About
+      </Text>
+      <Text style={styles.bigText}>Your Journeys</Text>
+      <Text>
+        You have released {totalEmissionsResult} kilograms of CO2 over{' '}
+        {journeys.length} journeys.
+      </Text>
+      <Text>{'\n'}</Text>
+      <FlatList
+        data={journeys}
+        renderItem={({ item }) => (
+          <Text>
+            On {item.date}: travelled {item.distance} km, {item.emissions} kg
+          </Text>
+        )}
+      />
+    </View>
+  );
 };
-
-
-
 
 const styles = StyleSheet.create({
   body: {
@@ -131,4 +137,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HistoryScreen; 
+export default HistoryScreen;

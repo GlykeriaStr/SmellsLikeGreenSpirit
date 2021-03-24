@@ -42,12 +42,12 @@ const HomeScreen = ({ navigation }) => {
           }}>
           About
         </Text>
-        <Text 
-         style={styles.aboutButtonText}
-         onPress={() => {
-           navigation.navigate('Journey History');
-         }}>
-         History
+        <Text
+          style={styles.aboutButtonText}
+          onPress={() => {
+            navigation.navigate('Journey History');
+          }}>
+          History
         </Text>
       </View>
       <View style={styles.container}>
@@ -77,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
           <TextInput
             style={styles.textInput}
             placeholder="e.g. 50"
-            keyboardType= 'numeric'
+            keyboardType="numeric"
             onChangeText={(val) => setDistance(val)}
           />
         </View>
