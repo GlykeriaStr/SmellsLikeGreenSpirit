@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import { save, getValueFor, deleteKey } from '../logic/SecureStorage';
 
-const HistoryScreen = ( { navigation } ) => {
+const HistoryScreen = ({ navigation }) => {
+  let [history, setHistory] = useState([]);
+
+  console.log('Here on HistoryScreen');
+
+  // const journeyHistory = getValueFor();
+  (async function () {
+    console.log('here in IIFE');
+    let journeyHistory = await getValueFor();
+    setHistory(journeyHistory);
+    // console.log(journeyHistory);
+  })();
+  // console.log('This is the journey history:');
+  console.log(`history screen history: ${history}`);
+
   const journeys = [
     { key: 'key', distance: 1, emissions: 5, date: '2021/03/24' },
     { key: 'id2', distance: 2, emissions: 6, date: '2021/03/24' },
@@ -33,8 +48,10 @@ const HistoryScreen = ( { navigation } ) => {
         {journeys.length} journeys.
       </Text>
       <Text>{'\n'}</Text>
+      <Text>{history[0].key}</Text>
       <FlatList
-        data={journeys}
+        data={history}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>
             On {item.date}: travelled {item.distance} km, {item.emissions} kg
