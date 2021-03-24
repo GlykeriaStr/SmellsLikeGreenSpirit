@@ -6,8 +6,6 @@ import { getValueFor } from '../logic/SecureStorage';
 const HistoryScreen = ({ navigation }) => {
   let [history, setHistory] = useState([]);
 
-  console.log('Here on HistoryScreen');
-
   useEffect(() => {
     let cancelled = false;
 
@@ -28,8 +26,6 @@ const HistoryScreen = ({ navigation }) => {
     };
   }, []);
 
-  console.log(history);
-
   function totalEmissions(journeys) {
     let result = 0;
     for (let i = 0; i < journeys.length; i++) {
@@ -46,21 +42,13 @@ const HistoryScreen = ({ navigation }) => {
     }
     return journeys;
   }
-  distancesBackToMiles(history);
-  // console.log(history);
 
-  const totalEmissionsResult = totalEmissions(history);
+  console.log(Date.parse(history[0].date));
+  distancesBackToMiles(history);
+  const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
 
   return (
-    <View>
-      <Text
-        style={styles.aboutButtonText}
-        title="About"
-        onPress={() => {
-          navigation.navigate('About');
-        }}>
-        About
-      </Text>
+    <View style={{ flex: 1 }}>
       <Text style={styles.bigText}>Your Journeys</Text>
       <Text>
         You have released {totalEmissionsResult} kilograms of CO2 over{' '}
@@ -68,12 +56,11 @@ const HistoryScreen = ({ navigation }) => {
       </Text>
       <Text>{'\n'}</Text>
       <FlatList
-        // style={{ flex: 1 }}
-        data={history}
+        data={history.reverse()}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>
-            On {item.date}: travelled {item.distanceKm} {item.units},{' '}
+            {item.distance} {item.units} on {item.date.slice(1, 11)}:{' '}
             {item.emissionsValue} kg
           </Text>
         )}

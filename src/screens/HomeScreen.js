@@ -11,7 +11,7 @@ const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
   const [isMiles, setIsMiles] = useState(false);
-  const KMDistance = milesToKilometres(isMiles, distance);
+  const kmDistance = milesToKilometres(isMiles, distance);
 
   const handleSubmit = async () => {
     const headers = { 'x-api-key': `${LicencePlateKey}` };
@@ -23,9 +23,9 @@ const HomeScreen = ({ navigation }) => {
         { headers },
       );
       const emissions = await response.data.co2Emissions;
-      const convertedDistance = KMDistance;
       await navigation.navigate('Results', {
-        convertedDistance,
+        distance,
+        kmDistance,
         emissions,
         isMiles,
       });

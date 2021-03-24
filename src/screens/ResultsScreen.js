@@ -5,8 +5,8 @@ import { resultsMessage } from '../logic/ResultsMessage';
 import { save, deleteKey } from '../logic/SecureStorage';
 
 const ResultsScreen = ({ navigation, route }) => {
-  const { convertedDistance, emissions, isMiles } = route.params;
-  const result = emissionsCalculator(emissions, convertedDistance);
+  const { distance, kmDistance, emissions, isMiles } = route.params;
+  const result = emissionsCalculator(emissions, kmDistance);
   const resultInTonnes = result / 1000;
   const comparison = resultsMessage(result);
 
@@ -20,13 +20,20 @@ const ResultsScreen = ({ navigation, route }) => {
   function createValue() {
     let storageDate = getDate();
     let distanceUnits;
+    let distanceToSave;
     if (isMiles) {
-      distanceUnits = 'miles';
+      distanceToSave = distance;
+      distanceToSave === '1'
+        ? (distanceUnits = 'mile')
+        : (distanceUnits = 'miles');
     } else {
       distanceUnits = 'km';
+      distanceToSave = kmDistance;
     }
+
+    console.log(distanceToSave);
     return {
-      distanceKm: convertedDistance,
+      distance: distanceToSave,
       emissionsValue: result,
       date: storageDate,
       units: distanceUnits,

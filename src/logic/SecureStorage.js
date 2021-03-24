@@ -4,20 +4,18 @@ export async function save(journeyHash) {
   let existingData = await SecureStore.getItemAsync('journeys');
 
   if (existingData) {
-    let entryId = `id${existingData.length}`;
-    console.log("🔐 Here's your existing values 🔐 \n" + existingData);
-    // console.log(entryId);
-    let existingParsed = JSON.parse(existingData);
-    console.log(existingParsed);
+    // let entryId = `id${existingData.length}`;
+    // console.log("🔐 Here's your existing values 🔐 \n" + existingData);
 
-    journeyHash.key = entryId;
+    let existingParsed = JSON.parse(existingData);
+
+    journeyHash.key = `id${existingParsed.length}`;
     existingParsed.push(journeyHash);
-    console.log(existingParsed);
-    // let newResult = result + string;
+    // console.log(existingParsed);
+
     await SecureStore.setItemAsync('journeys', JSON.stringify(existingParsed));
-    // return newResult;
   } else {
-    journeyHash.key = 'id1';
+    journeyHash.key = 'id0';
     await SecureStore.setItemAsync('journeys', JSON.stringify([journeyHash]));
   }
 }
