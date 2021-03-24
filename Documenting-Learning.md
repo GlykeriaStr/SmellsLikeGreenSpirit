@@ -165,3 +165,16 @@
 - Tom 💩 Lentil, rice and veggie stew
 - Miranda 💀 Kale and pasta
 - Jon 🔋 Thai fish noodle soup
+
+## 24 March 2021
+
+### Morning
+
+- We messaged the coaches and Alex got back to us. He suggested we try googling send key to manage the eventListeners on the offset website.
+- Miranda and Glykeria decided to leave it for now and work on the Facts page and some styling. The links from the facts page are embeded in the app. All created and merged!
+- Karsten, Tom and Jonathan worked on trying to implement secure storage.
+
+### Afternoon
+- Karsten, Tom and Glykeria kept working on implementing secure storage. We managed to save all our inputs but are not able to see them on the page yet.
+- Miranda and Jonathan created a history page and worked on styling. It is now merged.
+- We decided to all go away and give it a go at secure storage.
