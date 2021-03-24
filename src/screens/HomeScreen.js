@@ -70,6 +70,7 @@ const HomeScreen = ({ navigation }) => {
           <TextInput
             style={styles.textInput}
             placeholder="e.g. 50"
+            keyboardType= 'numeric'
             onChangeText={(val) => setDistance(val)}
           />
         </View>
