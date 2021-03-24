@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { save, getValueFor, deleteKey } from '../logic/SecureStorage';
@@ -8,12 +8,41 @@ const HistoryScreen = ({ navigation }) => {
 
   console.log('Here on HistoryScreen');
 
-  (async function () {
-    console.log('here in IIFE');
-    let journeyHistoryString = await getValueFor();
-    let journeyHistoryArray = JSON.parse(journeyHistoryString);
-    setHistory(journeyHistoryArray);
-  })();
+  useEffect(() => {
+    let cancelled = false;
+    console.log(`here in useEffect, cancelled is ${cancelled}`);
+
+    const getHistory = async () => {
+      // console.log('here in getHistory');
+      const journeyHistoryString = await getValueFor();
+      if (!cancelled) {
+        if (journeyHistoryString) {
+          let journeyHistoryArray = JSON.parse(journeyHistoryString);
+          setHistory(journeyHistoryArray);
+          return (cancelled = true);
+        } else {
+          setHistory(false);
+        }
+      }
+    };
+
+    getHistory().catch((error) => console.error(`There's an error: ${error}`));
+
+    return () => {
+      cancelled = true;
+    };
+  });
+
+  // async function getHistory() {
+  //   console.log('here in IIFE');
+  //   let journeyHistoryString = await getValueFor();
+  //   if (journeyHistoryString) {
+  //     let journeyHistoryArray = JSON.parse(journeyHistoryString);
+  //     setHistory(journeyHistoryArray);
+  //   }
+  // }
+
+  // getHistory();
 
   function totalEmissions(journeys) {
     let result = 0;
