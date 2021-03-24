@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import * as Linking from 'expo-linking';
 
-const AboutScreen = () => {
+
+const AboutScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>About This App</Text>
@@ -13,12 +13,13 @@ const AboutScreen = () => {
       </Text>
       <Text
         style={styles.link}
-        onPress={() =>
-          Linking.openURL(
-            'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
-          )
-        }>
+        onPress={() => navigation.navigate('GitHub')}>
         GitHub Repository
+      </Text>
+      <Text
+        style={styles.link}
+        onPress={() => navigation.navigate('Emissions Facts')}>
+        Emissions Facts
       </Text>
     </View>
   );
