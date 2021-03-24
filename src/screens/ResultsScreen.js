@@ -19,11 +19,17 @@ const ResultsScreen = ({ navigation, route }) => {
 
   function createValue() {
     let storageDate = getDate();
+    let distanceUnits;
+    if (isMiles) {
+      distanceUnits = 'miles';
+    } else {
+      distanceUnits = 'km';
+    }
     return {
       distanceKm: convertedDistance,
       emissionsValue: result,
       date: storageDate,
-      isMiles: isMiles,
+      units: distanceUnits,
     };
   }
 

@@ -38,6 +38,17 @@ const HistoryScreen = ({ navigation }) => {
     return result;
   }
 
+  function distancesBackToMiles(journeys) {
+    for (let i = 0; i < journeys.length; i++) {
+      if (journeys[i].isMiles === true) {
+        journeys[i].distanceKm *= 0.62137099;
+      }
+    }
+    return journeys;
+  }
+  distancesBackToMiles(history);
+  // console.log(history);
+
   const totalEmissionsResult = totalEmissions(history);
 
   return (
@@ -62,7 +73,7 @@ const HistoryScreen = ({ navigation }) => {
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>
-            On {item.date}: travelled {item.distanceKm} km,{' '}
+            On {item.date}: travelled {item.distanceKm} {item.units},{' '}
             {item.emissionsValue} kg
           </Text>
         )}
