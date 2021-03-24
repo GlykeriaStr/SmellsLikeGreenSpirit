@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-
 const AboutScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
@@ -11,9 +10,7 @@ const AboutScreen = ({ navigation }) => {
         Made by:
         {'\n'}Glykeria{'\n'}Jonathan{'\n'}Karsten{'\n'}Miranda{'\n'}Tom
       </Text>
-      <Text
-        style={styles.link}
-        onPress={() => navigation.navigate('GitHub')}>
+      <Text style={styles.link} onPress={() => navigation.navigate('GitHub')}>
         GitHub Repository
       </Text>
       <Text
