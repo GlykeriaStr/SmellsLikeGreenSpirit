@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
-import { save, getValueFor, deleteKey } from '../logic/SecureStorage';
+import { getValueFor } from '../logic/SecureStorage';
 
 const HistoryScreen = ({ navigation }) => {
   let [history, setHistory] = useState([]);
@@ -10,16 +10,13 @@ const HistoryScreen = ({ navigation }) => {
 
   useEffect(() => {
     let cancelled = false;
-    // console.log(`here in useEffect, cancelled is ${cancelled}`);
+
     const getHistory = async () => {
-      // console.log('here in getHistory');
       const journeyHistoryString = await getValueFor();
       if (!cancelled) {
         if (journeyHistoryString) {
           let journeyHistoryArray = JSON.parse(journeyHistoryString);
           setHistory(journeyHistoryArray);
-          // console.log(history);
-          // return (cancelled = true);
         } else {
           setHistory(false);
         }
@@ -36,11 +33,12 @@ const HistoryScreen = ({ navigation }) => {
   function totalEmissions(journeys) {
     let result = 0;
     for (let i = 0; i < journeys.length; i++) {
-      result += journeys[i].emissions;
+      result += journeys[i].emissionsValue;
     }
     return result;
   }
-  let totalEmissionsResult = totalEmissions(history);
+
+  const totalEmissionsResult = totalEmissions(history);
 
   return (
     <View>

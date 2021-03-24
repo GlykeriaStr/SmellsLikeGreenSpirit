@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import emissionsCalculator from '../logic/EmissionsCalculation';
 import { resultsMessage } from '../logic/ResultsMessage';
-import { save, getValueFor, deleteKey } from '../logic/SecureStorage';
+import { save, deleteKey } from '../logic/SecureStorage';
 
 const ResultsScreen = ({ navigation, route }) => {
-  const { convertedDistance, emissions } = route.params;
+  const { convertedDistance, emissions, isMiles } = route.params;
   const result = emissionsCalculator(emissions, convertedDistance);
   const resultInTonnes = result / 1000;
   const comparison = resultsMessage(result);
@@ -23,6 +23,7 @@ const ResultsScreen = ({ navigation, route }) => {
       distanceKm: convertedDistance,
       emissionsValue: result,
       date: storageDate,
+      isMiles: isMiles,
     };
   }
 

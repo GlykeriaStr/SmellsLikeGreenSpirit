@@ -10,8 +10,8 @@ import milesToKilometres from '../logic/MilesToKilometres';
 const HomeScreen = ({ navigation }) => {
   const [distance, setDistance] = useState('0');
   const [plate, setPlate] = useState('');
-  const [value, setValue] = useState(false);
-  const KMDistance = milesToKilometres(value, distance);
+  const [isMiles, setIsMiles] = useState(false);
+  const KMDistance = milesToKilometres(isMiles, distance);
 
   const handleSubmit = async () => {
     const headers = { 'x-api-key': `${LicencePlateKey}` };
@@ -24,7 +24,11 @@ const HomeScreen = ({ navigation }) => {
       );
       const emissions = await response.data.co2Emissions;
       const convertedDistance = KMDistance;
-      await navigation.navigate('Results', { convertedDistance, emissions });
+      await navigation.navigate('Results', {
+        convertedDistance,
+        emissions,
+        isMiles,
+      });
     } catch (error) {
       Alert.alert('Warning', 'This is not a valid licence plate number');
     }
@@ -71,7 +75,7 @@ const HomeScreen = ({ navigation }) => {
 
       <View style={styles.inputContainer}>
         <View style={styles.kmToMilesText}>
-          {KMToMilesSwitch(value, setValue)}
+          {KMToMilesSwitch(isMiles, setIsMiles)}
         </View>
         <View style={styles.inputParent}>
           <TextInput
