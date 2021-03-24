@@ -1,20 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { DrawerLayoutAndroidBase, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import emissionsCalculator from '../logic/EmissionsCalculation';
 import { resultsMessage, context } from '../logic/ResultsMessage';
 import * as SecureStore from 'expo-secure-store'
 import { save, getValueFor } from '../storage/SecureStorage'
+import nextId from 'react-id-generator'
 
 const ResultsScreen = ({ route }) => {
   const { convertedDistance, emissions } = route.params;
   const result = emissionsCalculator(emissions, convertedDistance);
   const comparison = resultsMessage(result);
-  const storageKey = 1
   const convertedDistanceValue = convertedDistance;
   const emissionsValue = result;
-  const combined = [convertedDistanceValue, emissionsValue]
 
-  class SavedValues {
+  class ResultsData {
     constructor(convertedDistanceValue, emissionsValue, dateForStorage) {
       this.convertedDistanceValue = convertedDistanceValue
       this.emissionsValue = emissionsValue
@@ -22,29 +21,33 @@ const ResultsScreen = ({ route }) => {
     }
   }
 
-  async function retrieveValue(key) {
-    let today = new Date();
-    let stringifiedDate = JSON.stringify(today);
-    let storageDate = stringifiedDate.substring(1, 11);
-    let values = new SavedValues(convertedDistanceValue, emissionsValue, storageDate)
-    save(key, JSON.stringify(values));
-    var x = await getValueFor(key);
-    var y = JSON.parse(x);
-    console.log(y.emissionsValue);
-    console.log(y.convertedDistanceValue);
-    console.log(y.dateForStorage);
+  async function createValue() {
+    let storageDate = getDate()
+    let key = nextId()
+    let values = new ResultsData(convertedDistanceValue, emissionsValue, storageDate)
 
+
+    function getDate() {
+      let today = new Date();
+      let stringifiedDate = JSON.stringify(today);
+      let date = stringifiedDate.substring(1, 11);
+      return date
+    }
+
+    save(key, JSON.stringify(values));
+      
+      // Retireve Value 
+      var x = await getValueFor(key);
+      var y = JSON.parse(x);
+
+      // Feedback 
+      console.log(key)
+      console.log(y.convertedDistanceValue);
+      console.log(y.emissionsValue);
+      console.log(y.dateForStorage);
   }
 
-  retrieveValue("storageKey");
-  // console.log(JSON.parse(x));
-
-  // date.then(response => response.json())
-  //   .then(data => {
-  //     console.log(data);
-  //   })
-  //   .catch(err => console.error(err));
-  // console.log(date);
+  createValue();
 
   return (
     <View style={styles.container}>

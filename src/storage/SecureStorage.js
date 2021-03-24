@@ -14,3 +14,8 @@ export async function getValueFor(key) {
     return 0;
   }
 }
+
+export async function getItemAsync() {
+  let result = await SecureStore.getItemAsync();
+  console.log(result)
+}
