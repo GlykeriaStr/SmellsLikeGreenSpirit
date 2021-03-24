@@ -42,6 +42,13 @@ const HomeScreen = ({ navigation }) => {
           }}>
           About
         </Text>
+        <Text 
+         style={styles.aboutButtonText}
+         onPress={() => {
+           navigation.navigate('Journey History');
+         }}>
+         History
+        </Text>
       </View>
       <View style={styles.container}>
         <Text style={styles.bigText}>How much CO2</Text>
