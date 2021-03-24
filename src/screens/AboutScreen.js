@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import React from 'react';
 import * as Linking from 'expo-linking';
 
-const AboutScreen = () => {
+const AboutScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>About This App</Text>
@@ -19,6 +19,9 @@ const AboutScreen = () => {
           )
         }>
         GitHub Repository
+      </Text>
+      <Text onPress={() => navigation.navigate('Emissions Facts')}>
+        Emissions Facts
       </Text>
     </View>
   );
