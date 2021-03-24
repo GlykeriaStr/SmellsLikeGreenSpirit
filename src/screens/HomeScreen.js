@@ -42,6 +42,13 @@ const HomeScreen = ({ navigation }) => {
           }}>
           About
         </Text>
+        <Text
+          style={styles.aboutButtonText}
+          onPress={() => {
+            navigation.navigate('Journey History');
+          }}>
+          History
+        </Text>
       </View>
       <View style={styles.container}>
         <Text style={styles.bigText}>How much CO2</Text>
@@ -70,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
           <TextInput
             style={styles.textInput}
             placeholder="e.g. 50"
-            keyboardType= 'numeric'
+            keyboardType="numeric"
             onChangeText={(val) => setDistance(val)}
           />
         </View>

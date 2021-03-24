@@ -8,6 +8,7 @@ import EmissionsFactsScreen from '../screens/EmissionsFactsScreen';
 import ResourceWebScreen from '../screens/ResourceWebScreen';
 import GithubScreen from '../screens/GithubScreen';
 import WebScreen from '../screens/WebScreen';
+import HistoryScreen from '../screens/HistoryScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ const AppNavigator = () => {
         <Stack.Screen name="Carbon Data" component={ResourceWebScreen} />
         <Stack.Screen name="GitHub" component={GithubScreen} />
         <Stack.Screen name="Offsets" component={WebScreen} />
+        <Stack.Screen name="Journey History" component={HistoryScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
