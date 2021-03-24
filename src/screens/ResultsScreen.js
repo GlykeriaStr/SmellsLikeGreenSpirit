@@ -10,17 +10,10 @@ const ResultsScreen = ({ navigation, route }) => {
   const resultInTonnes = result / 1000;
   const comparison = resultsMessage(result);
 
-  function getDate() {
-    let today = new Date();
-    let stringifiedDate = JSON.stringify(today);
-    // let date = stringifiedDate.substring(1, 11);
-    return stringifiedDate;
-  }
-
   function createValue() {
-    let storageDate = getDate();
-    let distanceUnits;
-    let distanceToSave;
+    let storageDate = new Date().toJSON();
+    let distanceUnits, distanceToSave;
+
     if (isMiles) {
       distanceToSave = distance;
       distanceToSave === '1'
@@ -31,7 +24,6 @@ const ResultsScreen = ({ navigation, route }) => {
       distanceToSave = kmDistance;
     }
 
-    console.log(distanceToSave);
     return {
       distance: distanceToSave,
       emissionsValue: result,

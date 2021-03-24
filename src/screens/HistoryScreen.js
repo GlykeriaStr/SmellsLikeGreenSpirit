@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { getValueFor } from '../logic/SecureStorage';
+import strftime from 'strftime';
 
 const HistoryScreen = ({ navigation }) => {
   let [history, setHistory] = useState([]);
@@ -34,17 +35,17 @@ const HistoryScreen = ({ navigation }) => {
     return result;
   }
 
-  function distancesBackToMiles(journeys) {
+  function processForDisplay(journeys) {
     for (let i = 0; i < journeys.length; i++) {
       if (journeys[i].isMiles === true) {
         journeys[i].distanceKm *= 0.62137099;
       }
+      journeys[i].date = strftime('%d %B, %Y', new Date(journeys[i].date));
     }
     return journeys;
   }
 
-  console.log(Date.parse(history[0].date));
-  distancesBackToMiles(history);
+  processForDisplay(history);
   const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
 
   return (
@@ -60,8 +61,8 @@ const HistoryScreen = ({ navigation }) => {
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>
-            {item.distance} {item.units} on {item.date.slice(1, 11)}:{' '}
-            {item.emissionsValue} kg
+            {item.distance} {item.units} on {item.date}: {item.emissionsValue}{' '}
+            kg
           </Text>
         )}
       />
