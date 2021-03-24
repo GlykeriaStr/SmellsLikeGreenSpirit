@@ -20,7 +20,7 @@ export default MyWeb = () => {
       ) : null}
       <WebView
         source={{
-          uri:  'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
+          uri: 'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
         }}
         style={{ marginTop: 20 }}
         onLoadProgress={({ nativeEvent }) => {

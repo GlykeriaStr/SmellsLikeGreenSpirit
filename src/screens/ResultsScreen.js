@@ -6,6 +6,7 @@ import { resultsMessage } from '../logic/ResultsMessage';
 const ResultsScreen = ({ navigation, route }) => {
   const { convertedDistance, emissions } = route.params;
   const result = emissionsCalculator(emissions, convertedDistance);
+  const resultInTonnes = result / 1000;
   const comparison = resultsMessage(result);
 
   return (
@@ -17,7 +18,7 @@ const ResultsScreen = ({ navigation, route }) => {
       {result !== 0 ? (
         <Text
           style={styles.link}
-          onPress={() => navigation.navigate('Offsets', { result })}>
+          onPress={() => navigation.navigate('Offsets', { resultInTonnes })}>
           How you can help!
         </Text>
       ) : null}

@@ -6,9 +6,10 @@ import { WebView } from 'react-native-webview';
 export default MyWeb = ({ route }) => {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
-  const { result } = route.params;
-  const code = `
-  document.getElementById('input_7_3').value = ${result}`;
+  const { resultInTonnes } = route.params;
+  const code = `let inputBox = document.getElementById('input_7_3');
+inputBox.value = ${resultInTonnes};
+inputBox.dispatchEvent(new KeyboardEvent('keydown',{'key':'a'}));`;
 
   return (
     <View style={{ flex: 1 }}>
