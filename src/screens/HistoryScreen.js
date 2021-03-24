@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
-const HistoryScreen = () => {
+const HistoryScreen = ( { navigation } ) => {
   const journeys = [
     { key: 'key', distance: 1, emissions: 5, date: '2021/03/24' },
     { key: 'id2', distance: 2, emissions: 6, date: '2021/03/24' },
