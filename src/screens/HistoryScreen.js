@@ -24,9 +24,13 @@ return(
  <Text>{"\n"}</Text>
  <FlatList
    data={[
-     { distance: 1, emissions: 5},
+     { distance: 1, emissions: 5, date: "2021/03/24" },
    ]}
-  renderItem={({item}) => <Text>{item.distance}</Text>}
+  renderItem={({item}) => 
+  <Text>Journey on {item.date} {"\n"}
+        Distance travelled: {item.distance} km {"\n"}
+        Emissions: {item.emissions} kg
+  </Text>}
 />
    
 </View>)
