@@ -38,6 +38,7 @@ const ResultsScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
+  
     <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <Text style={ styles.result }>
         {result} kilograms of CO<Text style={ styles.two }>2</Text>
@@ -51,6 +52,23 @@ const ResultsScreen = ({ navigation, route }) => {
           Offset this carbon!
         </Text>
       ) : null}
+       <View>
+        <Text
+          style={styles.aboutButtonText}
+          title="About"
+          onPress={() => {
+            navigation.navigate('About');
+          }}>
+          About
+        </Text>
+        <Text
+          style={styles.aboutButtonText}
+          onPress={() => {
+            navigation.navigate('Journey History');
+          }}>
+          History
+        </Text>
+      </View>
     </View>
   );
 };
@@ -72,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   standardText: {
-    fontSize: 25,
+    fontSize: 28,
     padding: 20,
     color: '#311844',
     fontFamily: 'Futura',
@@ -84,7 +102,7 @@ const styles = StyleSheet.create({
   },
   link: {
     color: '#4F8B3A',
-    fontSize: 20,
+    fontSize: 25,
     fontFamily: 'Futura',
   },
   background: {
@@ -110,7 +128,15 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#369',
     fontFamily: 'Futura',
-  }
+  },
+  aboutButtonText: {
+    borderColor: '#311844',
+    color: '#369',
+    textAlign: 'center',
+    fontFamily: 'Futura',
+    paddingTop: 30,
+    fontSize: 20,
+  },
 });
 
 export default ResultsScreen;
