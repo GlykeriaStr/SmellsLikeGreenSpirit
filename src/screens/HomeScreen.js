@@ -140,8 +140,8 @@ const styles = StyleSheet.create({
   },
   input: {
     fontFamily: 'Futura',
-    borderWidth: 1,
-    borderColor: '#311844',
+    // borderWidth: 1,
+    // borderColor: '#311844',
     padding: 8,
     margin: 10,
     width: 100,
@@ -153,20 +153,20 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'red',
+    // borderWidth: 1,
+    // borderColor: 'red',
     flexDirection: 'row',
   },
   inputParent: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: 'purple',
+    // borderWidth: 1,
+    // borderColor: 'purple',
     justifyContent: 'flex-end',
   },
   licencePlateText: {
     alignSelf: 'flex-end',
-    borderWidth: 1,
-    borderColor: 'green',
+    // borderWidth: 1,
+    // borderColor: 'green',
     color: '#311844',
     fontSize: 20,
     fontFamily: 'Futura',
@@ -182,8 +182,8 @@ const styles = StyleSheet.create({
   kmToMilesText: {
     flexDirection: 'row',
     flex: 1,
-    borderWidth: 1,
-    borderColor: 'black',
+    // borderWidth: 1,
+    // borderColor: 'black',
     justifyContent: 'flex-end',
   },
   background: {
