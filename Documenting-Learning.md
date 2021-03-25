@@ -186,11 +186,22 @@
 
 ### Morning
 
--
+- Miranda fixed the async issue with the history of the journeys. Merged.
+- Glykeria styled the about page. Merged.
+- Tom, Miranda and Jon styled the history page. Merged.
+- Karsten worked on the presentation.
+- Assigned roles for presentation and deleted borders from homepage.
 
 ### Afternoon
 
--
+- Attended the presentation.
+- For tomorrow's one we decided to add a screenshot of the app working on Android.
+- We decided to work on styling pages separately.
+- Glykeria will do the results page
+- Miranda will do the little 2 in the facts page
+- Karsten will do the logo
+- Jon will create a diagram for the presentation
+- Tom will do the about and history buttons
 
 ### End of Sprint
 
