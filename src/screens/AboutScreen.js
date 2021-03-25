@@ -93,25 +93,18 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   text: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // flexWrap: 'wrap',
     fontFamily: 'Verdana',
     fontWeight: 'normal',
     fontSize: 15,
     lineHeight: 28,
     color: '#311844',
-    // alignItems: 'center',
-    // alignContent: 'flex-start',
   },
   textSubscript: {
-    // flexWrap: 'wrap',
     fontFamily: 'Verdana',
     fontWeight: 'normal',
     fontSize: 10,
     lineHeight: 80,
     color: '#311844',
-    // alignContent: 'flex-start',
   },
   repos: {
     flex: 1,
@@ -122,13 +115,6 @@ const styles = StyleSheet.create({
   emissions: {
     color: '#369',
     fontSize: 20,
-  },
-  textView: {
-    // flexDirection: 'row',
-    // alignItems: 'center',
-    justifyContent: 'flex-start',
-    // flexWrap: 'wrap',
-    alignContent: 'flex-start',
   },
 });
 
