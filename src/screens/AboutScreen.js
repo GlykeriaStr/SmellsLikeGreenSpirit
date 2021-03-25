@@ -12,6 +12,7 @@ const AboutScreen = ({ navigation }) => {
     link: 'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
     name: 'GitHub Repository',
   };
+  const cLevel = { link: 'https://www.clevel.co.uk/', name: 'C-Level' };
 
   const githubs = (link) => {
     return (
@@ -37,8 +38,8 @@ const AboutScreen = ({ navigation }) => {
           regular activities that consume a similar amount of CO
           <Text style={styles.textSubscript}>2</Text> for comparison. If you'd
           like to donate to offset your carbon emissions, you can follow a link
-          to our chosen environmental organisation where a one-off payment can
-          be made. {'\n'}
+          to our chosen environmental organisation, {githubs(cLevel)}, where a
+          one-off payment can be made. {'\n'}
           {'\n'}
           This project was built in the final two weeks at Makers Academy. We
           used React Native to create an E2E mobile app experience for the user.
