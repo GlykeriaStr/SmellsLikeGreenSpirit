@@ -2,38 +2,47 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
 
 const AboutScreen = ({ navigation }) => {
-  const gly = {link: 'https://github.com/GlykeriaStr', name: 'Glykeria'}
-  const mir = {link: 'https://github.com/mscwilson', name: 'Miranda'}
-  const tom = {link: 'https://github.com/twigz826', name: 'Tom'}
-  const Karsten = {link: 'https://github.com/KarstenFinlay', name: 'Karsten'}
-  const Jon = {link: 'https://github.com/bullhornfixie', name: 'Jonathan'}
-  const Github = {link: 'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit', name: 'GitHub Repository'}
+  const gly = { link: 'https://github.com/GlykeriaStr', name: 'Glykeria' };
+  const mir = { link: 'https://github.com/mscwilson', name: 'Miranda' };
+  const tom = { link: 'https://github.com/twigz826', name: 'Tom' };
+  const Karsten = { link: 'https://github.com/KarstenFinlay', name: 'Karsten' };
+  const Jon = { link: 'https://github.com/bullhornfixie', name: 'Jonathan' };
+  const Github = {
+    link: 'https://github.com/GlykeriaStr/SmellsLikeGreenSpirit',
+    name: 'GitHub Repository',
+  };
 
   const githubs = (link) => {
     return (
-      <Text 
-        style={styles.link} 
-        onPress={() => navigation.navigate('GitHub',{ url: link.link })}>
+      <Text
+        style={styles.link}
+        onPress={() => navigation.navigate('GitHub', { url: link.link })}>
         {link.name}
       </Text>
     );
   };
   return (
     <View style={styles.container}>
-      
       <Text style={styles.heading}>About This App</Text>
       <ScrollView>
         <Text style={styles.text}>
-          Spring Onion is a mobile app on iOS and Android that allow users to be able to calculate the carbon footprint of car journeys. {'\n'}
+          Spring Onion is a mobile app on iOS and Android that allow users to be
+          able to calculate the carbon footprint of car journeys. {'\n'}
           {'\n'}
-          All you need to know is your licence plate and the distance travelled and the app returns the amount of CO2 consumed, 
-          as well as other regular activities that consume a similar amount of CO2 for comparison. 
-          If you'd like to donate to offset your carbon emissions, you can follow a link to our chosen environmental organisation 
-          where a one-off payment can be made. {'\n'}
+          All you need to know is your licence plate and the distance travelled
+          and the app returns the amount of CO
+          <Text style={styles.textSubscript}>2</Text> consumed, as well as other
+          regular activities that consume a similar amount of CO
+          <Text style={styles.textSubscript}>2</Text> for comparison. If you'd
+          like to donate to offset your carbon emissions, you can follow a link
+          to our chosen environmental organisation where a one-off payment can
+          be made. {'\n'}
           {'\n'}
-          This project was built in the final two weeks at Makers Academy. 
-          We used React Native to create an E2E mobile app experience for the user. 
-          Our app is a one stop shop for environmentally conscious users that are looking to limit their contribution to global warming, no matter how small.{'\n'}
+          This project was built in the final two weeks at Makers Academy. We
+          used React Native to create an E2E mobile app experience for the user.
+          Our app is a one stop shop for environmentally conscious users that
+          are looking to limit their contribution to global warming, no matter
+          how small.{'\n'}
         </Text>
         <View style={styles.repos}>
           <Text style={styles.text}>
@@ -50,10 +59,10 @@ const AboutScreen = ({ navigation }) => {
             {githubs(tom)}
             {'\n'}
             {githubs(Github)}
-            {'\n'}    
+            {'\n'}
           </Text>
           <Text
-            style={ styles.emissions }
+            style={styles.emissions}
             onPress={() => navigation.navigate('Emissions Facts')}>
             Emissions Facts
             {'\n'}
@@ -84,14 +93,25 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   text: {
-    flex: 1,
-    justifyContent: 'center',
+    // flex: 1,
+    // justifyContent: 'center',
+    // flexWrap: 'wrap',
     fontFamily: 'Verdana',
     fontWeight: 'normal',
     fontSize: 15,
     lineHeight: 28,
     color: '#311844',
-    alignItems: 'center',
+    // alignItems: 'center',
+    // alignContent: 'flex-start',
+  },
+  textSubscript: {
+    // flexWrap: 'wrap',
+    fontFamily: 'Verdana',
+    fontWeight: 'normal',
+    fontSize: 10,
+    lineHeight: 80,
+    color: '#311844',
+    // alignContent: 'flex-start',
   },
   repos: {
     flex: 1,
@@ -102,6 +122,13 @@ const styles = StyleSheet.create({
   emissions: {
     color: '#369',
     fontSize: 20,
+  },
+  textView: {
+    // flexDirection: 'row',
+    // alignItems: 'center',
+    justifyContent: 'flex-start',
+    // flexWrap: 'wrap',
+    alignContent: 'flex-start',
   },
 });
 

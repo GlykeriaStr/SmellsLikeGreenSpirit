@@ -38,7 +38,7 @@ const ResultsScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-    <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
+      <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <Text style={styles.standardText}>
         Your journey will release {result} kilograms of CO2.
       </Text>
@@ -88,6 +88,10 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     height: 800,
+  },
+  textView: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
   },
 });
 
