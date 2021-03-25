@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const EmissionsFactsScreen = ({ navigation }) => {
   const guardian = {
@@ -24,6 +25,7 @@ const EmissionsFactsScreen = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
+      <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <View style={styles.titleView}>
         <Text style={styles.heading}>About CO</Text>
         <Text style={styles.titleSubscript}>2</Text>
@@ -114,6 +116,13 @@ const styles = StyleSheet.create({
   titleView: {
     flexDirection: 'row',
     alignItems: 'flex-start',
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 800,
   },
 });
 

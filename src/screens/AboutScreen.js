@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const AboutScreen = ({ navigation }) => {
   const gly = { link: 'https://github.com/GlykeriaStr', name: 'Glykeria' };
@@ -23,6 +24,7 @@ const AboutScreen = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
+      <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <Text style={styles.heading}>About This App</Text>
       <ScrollView>
         <Text style={styles.text}>
@@ -45,7 +47,7 @@ const AboutScreen = ({ navigation }) => {
           how small.{'\n'}
         </Text>
         <View style={styles.repos}>
-          <Text style={styles.text}>
+          <Text style={styles.centeredText}>
             Made by:
             {'\n'}
             {githubs(gly)}
@@ -57,6 +59,7 @@ const AboutScreen = ({ navigation }) => {
             {githubs(mir)}
             {'\n'}
             {githubs(tom)}
+            {'\n'}
             {'\n'}
             {githubs(Github)}
             {'\n'}
@@ -94,27 +97,38 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Verdana',
-    fontWeight: 'normal',
     fontSize: 15,
     lineHeight: 28,
     color: '#311844',
   },
+  centeredText: {
+    fontFamily: 'Verdana',
+    fontSize: 15,
+    lineHeight: 28,
+    color: '#311844',
+    textAlign: 'center',
+  },
   textSubscript: {
     fontFamily: 'Verdana',
-    fontWeight: 'normal',
     fontSize: 10,
     lineHeight: 80,
     color: '#311844',
   },
   repos: {
-    flex: 1,
     justifyContent: 'center',
-    textAlignVertical: 'center',
     alignItems: 'center',
   },
   emissions: {
+    fontFamily: 'Verdana',
     color: '#369',
     fontSize: 20,
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 800,
   },
 });
 
