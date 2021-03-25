@@ -44,42 +44,45 @@ const HistoryScreen = ({ navigation }) => {
     }
     return journeys;
   }
- 
+
   processForDisplay(history);
   const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
 
-  console.log(history)
-
-  if (history.length != 0 ) {
-  
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.bigText}>Your Journeys</Text>
-      <Text>
-        You have released {totalEmissionsResult} kilograms of CO2 over{' '}
-        {history.length} journeys.
-      </Text>
-      <Text>{'\n'}</Text>
-      <FlatList
-        data={history.reverse()}
-        keyExtractor={(item) => item.key}
-        renderItem={({ item }) => (
+      {!!history.length && (
+        <>
+          <Text>testing!!!</Text>
+          <Text>more text</Text>
           <Text>
-            {item.distance} {item.units} on {item.date}: {item.emissionsValue}{' '}
-            kg
+            You have released {totalEmissionsResult} kilograms of CO2 over{' '}
+            {history.length} journeys.
           </Text>
-        )}
-      />
-    </View>) 
-    }
+          <Text>{'\n'}</Text>
+          <FlatList
+            data={history.reverse()}
+            keyExtractor={(item) => item.key}
+            renderItem={({ item }) => (
+              <Text>
+                {item.distance} {item.units} on {item.date}:{' '}
+                {item.emissionsValue} kg
+              </Text>
+            )}
+          />
+        </>
+      )}
+      {!history.length && (
+        <>
+          <Text>no history!!!</Text>
+          <Text>more text</Text>
+          <Text>You haven't entered any journeys yet.</Text>
+        </>
+      )}
+    </View>
+  )
 
-  else {
-    return (
-      <View> 
-        <Text> Hello </Text>
-      </View> )
-   }
-  }
+}
 
 
 
