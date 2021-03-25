@@ -112,14 +112,15 @@
 
 - Karsten and Miranda worked on the about page, just making sure that hyper links worked, managed to complete this task.
 - Glykeria and Tom worked on error messages appearing if the user were to input an invalid number or licence plate. They managed to get this working in no time.
-- Miranda and Karsten started to work on the messages for the results logic. Added a switch condition, needs to be updated with some R & D in place. 
+- Miranda and Karsten started to work on the messages for the results logic. Added a switch condition, needs to be updated with some R & D in place.
 
 ### End of Sprint
+
 - Glykeria 🔥 Vegan Shepherds' pie
 - Karsten 🎩 Quorn and peas
 - Tom 🐡 Oysters and ceviche
 - Miranda 💤 Roast potatoes (does not care what is with them)
-- Jon 🌝  Home made pizza
+- Jon 🌝 Home made pizza
 
 ## 22 March 2021
 
@@ -157,9 +158,10 @@
 
 ### Afternoon
 
-- 
+-
 
 ### End of Sprint
+
 - Glykeria 🤬 Pasta with broccoli, lemon, garlic and cream
 - Karsten 🥔 Quorn, peas and a fried egg
 - Tom 💩 Lentil, rice and veggie stew
@@ -175,6 +177,25 @@
 - Karsten, Tom and Jonathan worked on trying to implement secure storage.
 
 ### Afternoon
+
 - Karsten, Tom and Glykeria kept working on implementing secure storage. We managed to save all our inputs but are not able to see them on the page yet.
 - Miranda and Jonathan created a history page and worked on styling. It is now merged.
 - We decided to all go away and give it a go at secure storage.
+
+## 25 March 2021
+
+### Morning
+
+-
+
+### Afternoon
+
+-
+
+### End of Sprint
+
+- Glykeria 🦾 Quorn with mash,peas and gravy
+- Karsten 🎊 Quorn and peas
+- Tom 🎓 Fried egg and chorizo sandwich
+- Miranda 🌸 Pierogi
+- Jon 🍉 Toasted chickpeas in a wrap with tzatziki
