@@ -29,7 +29,7 @@
 - Glykeria 🍝
 - Karsten 🐋
 - Tom 👀
-- Jon
+- Jon 🚣‍♀️
 - Miranda 🥦 vegetable + feta tray bake
 
 ## 17 March 2021
@@ -158,7 +158,9 @@
 
 ### Afternoon
 
--
+- Glykeria and Miranda were able to make is so that when you logged onto the website, you were put directly on the form fill in.
+- Jonathan, Karsten and Tom had a call with the other memebers and were successful at first.
+- However, later down the line Karsten, Tom and Jonathan struggled a decent amount with getting to display the data, and called it for a day.
 
 ### End of Sprint
 
