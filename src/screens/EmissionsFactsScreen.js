@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import React from 'react';
-import * as Linking from 'expo-linking';
 
 const EmissionsFactsScreen = ({ navigation }) => {
   const guardian = {
