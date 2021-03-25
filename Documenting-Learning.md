@@ -29,7 +29,7 @@
 - Glykeria 🍝
 - Karsten 🐋
 - Tom 👀
-- Jon
+- Jon 🚣‍♀️
 - Miranda 🥦 vegetable + feta tray bake
 
 ## 17 March 2021
