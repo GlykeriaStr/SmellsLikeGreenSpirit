@@ -1,43 +1,68 @@
-import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Alert } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { getValueFor } from '../logic/SecureStorage';
+import strftime from 'strftime';
 
-const HistoryScreen = ( { navigation } ) => {
-  const journeys = [
-    { key: 'key', distance: 1, emissions: 5, date: '2021/03/24' },
-    { key: 'id2', distance: 2, emissions: 6, date: '2021/03/24' },
-  ];
+const HistoryScreen = ({ navigation }) => {
+  let [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const getHistory = async () => {
+      const journeyHistoryString = await getValueFor();
+      if (!cancelled) {
+        if (journeyHistoryString) {
+          let journeyHistoryArray = JSON.parse(journeyHistoryString);
+          setHistory(journeyHistoryArray);
+        } else {
+          setHistory(false);
+        }
+      }
+    };
+    getHistory().catch((error) => console.error(`There's an error: ${error}`));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   function totalEmissions(journeys) {
     let result = 0;
     for (let i = 0; i < journeys.length; i++) {
-      result += journeys[i].emissions;
+      result += journeys[i].emissionsValue;
     }
     return result;
   }
-  let totalEmissionsResult = totalEmissions(journeys);
+
+  function processForDisplay(journeys) {
+    for (let i = 0; i < journeys.length; i++) {
+      if (journeys[i].isMiles === true) {
+        journeys[i].distanceKm *= 0.62137099;
+      }
+      journeys[i].date = strftime('%d %B, %Y', new Date(journeys[i].date));
+    }
+    return journeys;
+  }
+
+  processForDisplay(history);
+  const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
 
   return (
-    <View>
-      <Text
-        style={styles.aboutButtonText}
-        title="About"
-        onPress={() => {
-          navigation.navigate('About');
-        }}>
-        About
-      </Text>
+    <View style={{ flex: 1 }}>
       <Text style={styles.bigText}>Your Journeys</Text>
       <Text>
         You have released {totalEmissionsResult} kilograms of CO2 over{' '}
-        {journeys.length} journeys.
+        {history.length} journeys.
       </Text>
       <Text>{'\n'}</Text>
       <FlatList
-        data={journeys}
+        data={history.reverse()}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <Text>
-            On {item.date}: travelled {item.distance} km, {item.emissions} kg
+            {item.distance} {item.units} on {item.date}: {item.emissionsValue}{' '}
+            kg
           </Text>
         )}
       />

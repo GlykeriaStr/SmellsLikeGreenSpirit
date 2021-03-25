@@ -2,12 +2,38 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import emissionsCalculator from '../logic/EmissionsCalculation';
 import { resultsMessage } from '../logic/ResultsMessage';
+import { save, deleteKey } from '../logic/SecureStorage';
 
 const ResultsScreen = ({ navigation, route }) => {
-  const { convertedDistance, emissions } = route.params;
-  const result = emissionsCalculator(emissions, convertedDistance);
+  const { distance, kmDistance, emissions, isMiles } = route.params;
+  const result = emissionsCalculator(emissions, kmDistance);
   const resultInTonnes = result / 1000;
   const comparison = resultsMessage(result);
+
+  function createValue() {
+    let storageDate = new Date().toJSON();
+    let distanceUnits, distanceToSave;
+
+    if (isMiles) {
+      distanceToSave = distance;
+      distanceToSave === '1'
+        ? (distanceUnits = 'mile')
+        : (distanceUnits = 'miles');
+    } else {
+      distanceUnits = 'km';
+      distanceToSave = kmDistance;
+    }
+
+    return {
+      distance: distanceToSave,
+      emissionsValue: result,
+      date: storageDate,
+      units: distanceUnits,
+    };
+  }
+
+  save(createValue());
+  // deleteKey('journeys');
 
   return (
     <View style={styles.container}>
@@ -19,7 +45,7 @@ const ResultsScreen = ({ navigation, route }) => {
         <Text
           style={styles.link}
           onPress={() => navigation.navigate('Offsets', { resultInTonnes })}>
-          How you can help!
+          Offset this carbon!
         </Text>
       ) : null}
     </View>
