@@ -32,8 +32,8 @@ const ResultsScreen = ({ navigation, route }) => {
     };
   }
 
-  save(createValue());
-  // deleteKey('journeys');
+  // save(createValue());
+  deleteKey('journeys');
 
   return (
     <View style={styles.container}>

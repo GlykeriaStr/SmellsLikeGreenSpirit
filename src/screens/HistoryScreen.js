@@ -44,10 +44,14 @@ const HistoryScreen = ({ navigation }) => {
     }
     return journeys;
   }
-
+ 
   processForDisplay(history);
   const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
 
+  console.log(history)
+
+  if (history.length != 0 ) {
+  
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.bigText}>Your Journeys</Text>
@@ -66,9 +70,18 @@ const HistoryScreen = ({ navigation }) => {
           </Text>
         )}
       />
-    </View>
-  );
-};
+    </View>) 
+    }
+
+  else {
+    return (
+      <View> 
+        <Text> Hello </Text>
+      </View> )
+   }
+  }
+
+
 
 const styles = StyleSheet.create({
   body: {
