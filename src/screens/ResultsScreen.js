@@ -39,8 +39,8 @@ const ResultsScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
     <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
-      <Text style={styles.standardText}>
-        Your journey will release {result} kilograms of CO2.
+      <Text style={ styles.result }>
+        {result} kilograms of CO<Text style={ styles.two }>2</Text>
       </Text>
       <Text style={styles.standardText}>{comparison}</Text>
       <Text>{'\n'}</Text>
@@ -72,10 +72,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   standardText: {
-    fontSize: 20,
+    fontSize: 25,
     padding: 20,
     color: '#311844',
     fontFamily: 'Futura',
+    // borderWidth: 1,
+    // borderColor: '#311844',
+    width: 400,
+    textAlign: 'center',
+    marginTop: 60,
   },
   link: {
     color: '#4F8B3A',
@@ -89,6 +94,23 @@ const styles = StyleSheet.create({
     top: 0,
     height: 800,
   },
+  result: {
+    marginTop: -100,
+    fontFamily: 'Futura',
+    // borderWidth: 1,
+    // borderColor: '#311844',
+    padding: 0,
+    margin: 10,
+    width: 200,
+    fontSize: 45,
+    color: '#369',
+    textAlign: 'center',
+  },
+  two: {
+    fontSize: 25,
+    color: '#369',
+    fontFamily: 'Futura',
+  }
 });
 
 export default ResultsScreen;
