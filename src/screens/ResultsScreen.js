@@ -32,14 +32,16 @@ const ResultsScreen = ({ navigation, route }) => {
     };
   }
 
-  // save(createValue());
-  deleteKey('journeys');
+  save(createValue());
+  // deleteKey('journeys');
 
   return (
     <View style={styles.container}>
-      <Text>Your journey will release {result} kilograms of CO2.</Text>
-      <Text>{'\n'}</Text>
-      <Text>{comparison}</Text>
+      <Text style={styles.standardText}>
+        Your journey will release {result} kilograms of CO2.
+      </Text>
+      <Text> {'\n'} </Text>
+      <Text style={styles.standardText}> {comparison} </Text>
       <Text>{'\n'}</Text>
       {result !== 0 ? (
         <Text
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize: 20,
   },
   input: {
     borderWidth: 1,
@@ -65,9 +68,14 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 100,
+    fontSize: 20,
+  },
+  standardText: {
+    fontSize: 20,
   },
   link: {
     color: 'blue',
+    fontSize: 20,
   },
 });
 

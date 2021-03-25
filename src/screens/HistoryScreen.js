@@ -47,19 +47,22 @@ const HistoryScreen = ({ navigation }) => {
 
   processForDisplay(history);
   const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
+  const resultInTonnes = totalEmissionsResult / 1000
 
   return (
     <View style={{ flex: 1 }}>
       <Text style={styles.bigText}>Your Journeys</Text>
       {!!history.length && (
         <>
-          <Text>testing!!!</Text>
-          <Text>more text</Text>
           <Text>
             You have released {totalEmissionsResult} kilograms of CO2 over{' '}
             {history.length} journeys.
           </Text>
           <Text>{'\n'}</Text>
+          <Text
+            onPress={() => navigation.navigate('Offsets', { resultInTonnes })}>
+            Offset this carbon!
+          </Text>
           <FlatList
             data={history.reverse()}
             keyExtractor={(item) => item.key}
@@ -74,8 +77,6 @@ const HistoryScreen = ({ navigation }) => {
       )}
       {!history.length && (
         <>
-          <Text>no history!!!</Text>
-          <Text>more text</Text>
           <Text>You haven't entered any journeys yet.</Text>
         </>
       )}
