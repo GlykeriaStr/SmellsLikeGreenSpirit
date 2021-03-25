@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import emissionsCalculator from '../logic/EmissionsCalculation';
 import { resultsMessage } from '../logic/ResultsMessage';
+import { LinearGradient } from 'expo-linear-gradient';
 import { save, deleteKey } from '../logic/SecureStorage';
 
 const ResultsScreen = ({ navigation, route }) => {
@@ -37,9 +38,11 @@ const ResultsScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Your journey will release {result} kilograms of CO2.</Text>
-      <Text>{'\n'}</Text>
-      <Text>{comparison}</Text>
+    <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
+      <Text style={styles.standardText}>
+        Your journey will release {result} kilograms of CO2.
+      </Text>
+      <Text style={styles.standardText}>{comparison}</Text>
       <Text>{'\n'}</Text>
       {result !== 0 ? (
         <Text
@@ -58,6 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize: 20,
   },
   input: {
     borderWidth: 1,
@@ -65,9 +69,25 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 10,
     width: 100,
+    fontSize: 20,
+  },
+  standardText: {
+    fontSize: 20,
+    padding: 20,
+    color: '#311844',
+    fontFamily: 'Futura',
   },
   link: {
-    color: 'blue',
+    color: '#4F8B3A',
+    fontSize: 20,
+    fontFamily: 'Futura',
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 800,
   },
 });
 

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { getValueFor } from '../logic/SecureStorage';
 import strftime from 'strftime';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const HistoryScreen = ({ navigation }) => {
   let [history, setHistory] = useState([]);
@@ -47,28 +48,48 @@ const HistoryScreen = ({ navigation }) => {
 
   processForDisplay(history);
   const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
+  const resultInTonnes = totalEmissionsResult / 1000
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text style={styles.bigText}>Your Journeys</Text>
-      <Text>
-        You have released {totalEmissionsResult} kilograms of CO2 over{' '}
-        {history.length} journeys.
-      </Text>
-      <Text>{'\n'}</Text>
-      <FlatList
-        data={history.reverse()}
-        keyExtractor={(item) => item.key}
-        renderItem={({ item }) => (
+    <View style={styles.container}>
+    <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
+      <View style={styles.titleView}>
+        <Text style={styles.heading}>Your Journeys</Text>
+      </View>
+      {!!history.length && (
+        <>
           <Text>
-            {item.distance} {item.units} on {item.date}: {item.emissionsValue}{' '}
-            kg
+            You have released {totalEmissionsResult} kilograms of CO2 over{' '}
+            {history.length} journeys.
           </Text>
-        )}
-      />
+          <Text>{'\n'}</Text>
+          <Text
+            onPress={() => navigation.navigate('Offsets', { resultInTonnes })}>
+            Offset this carbon!
+          </Text>
+          <FlatList
+            data={history.reverse()}
+            keyExtractor={(item) => item.key}
+            renderItem={({ item }) => (
+              <Text>
+                {item.distance} {item.units} on {item.date}:{' '}
+                {item.emissionsValue} kg
+              </Text>
+            )}
+          />
+        </>
+      )}
+      {!history.length && (
+        <>
+          <Text>You haven't entered any journeys yet.</Text>
+        </>
+      )}
     </View>
-  );
-};
+  )
+
+}
+
+
 
 const styles = StyleSheet.create({
   body: {
@@ -76,18 +97,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#f4f4f8',
   },
   container: {
+    flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
-    paddingBottom: 30,
-    paddingTop: 60,
+    padding: 20,
   },
-  bigText: {
-    color: '#311844',
-    padding: 3,
-    paddingBottom: 10,
+  heading: {
+    color: '#4F8B3A',
     fontFamily: 'Futura',
+    fontWeight: 'bold',
     fontSize: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingBottom: 20,
+  },
+  titleView: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
   },
   aboutButtonText: {
     color: '#369',
@@ -105,53 +129,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Futura',
   },
-  input: {
-    fontFamily: 'Futura',
-    borderWidth: 1,
-    borderColor: '#311844',
-    padding: 8,
-    margin: 10,
-    width: 100,
-  },
   standardText: {
     color: '#311844',
     fontSize: 20,
     fontFamily: 'Futura',
-  },
-  inputContainer: {
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'red',
-    flexDirection: 'row',
-  },
-  inputParent: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: 'purple',
-    justifyContent: 'flex-end',
-  },
-  licencePlateText: {
-    alignSelf: 'flex-end',
-    borderWidth: 1,
-    borderColor: 'green',
-    color: '#311844',
-    fontSize: 20,
-    fontFamily: 'Futura',
-  },
-  textInput: {
-    fontFamily: 'Futura',
-    borderWidth: 1,
-    borderColor: '#311844',
-    padding: 8,
-    margin: 10,
-    width: 120,
-  },
-  kmToMilesText: {
-    flexDirection: 'row',
-    flex: 1,
-    borderWidth: 1,
-    borderColor: 'black',
-    justifyContent: 'flex-end',
   },
   background: {
     position: 'absolute',
