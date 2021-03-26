@@ -38,9 +38,9 @@ const ResultsScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-    <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
-      <Text style={ styles.result }>
-        {result} kilograms of CO<Text style={ styles.two }>2</Text>
+      <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
+      <Text style={styles.result}>
+        {result} kilograms of CO<Text style={styles.two}>2</Text>
       </Text>
       <Text style={styles.standardText}>{comparison}</Text>
       <Text>{'\n'}</Text>
@@ -51,7 +51,7 @@ const ResultsScreen = ({ navigation, route }) => {
           Offset this carbon!
         </Text>
       ) : null}
-       <View>
+      <View>
         <Text
           style={styles.aboutButtonText}
           title="About"

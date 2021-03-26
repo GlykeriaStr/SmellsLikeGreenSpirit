@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native-gesture-handler';
 import { getValueFor } from '../logic/SecureStorage';
 import strftime from 'strftime';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -48,11 +48,11 @@ const HistoryScreen = ({ navigation }) => {
 
   processForDisplay(history);
   const totalEmissionsResult = parseFloat(totalEmissions(history).toFixed(2));
-  const resultInTonnes = totalEmissionsResult / 1000
+  const resultInTonnes = totalEmissionsResult / 1000;
 
   return (
     <View style={styles.container}>
-    <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
+      <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <View style={styles.titleView}>
         <Text style={styles.heading}>Your Journeys</Text>
       </View>
@@ -87,11 +87,8 @@ const HistoryScreen = ({ navigation }) => {
         </>
       )}
     </View>
-  )
-
-}
-
-
+  );
+};
 
 const styles = StyleSheet.create({
   body: {

@@ -4,7 +4,7 @@ import * as Progress from 'react-native-progress';
 import { WebView } from 'react-native-webview';
 
 export default MyWeb = ({ route }) => {
-  const { url } = route.params
+  const { url } = route.params;
   const [progress, setProgress] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
 

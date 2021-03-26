@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
     color: '#311844',
     fontFamily: 'Futura',
     textAlign: 'center',
-    color: 'black',
     paddingBottom: 2,
   },
 });

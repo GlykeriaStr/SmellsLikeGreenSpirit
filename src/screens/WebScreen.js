@@ -34,7 +34,7 @@ inputBox.dispatchEvent(new KeyboardEvent('keydown',{'key':'a'}));`;
           setProgress(nativeEvent.progress);
         }}
         onLoadEnd={() => {
-          setLoaded(true), console.log('onloadend');
+          setLoaded(true);
         }}
       />
     </View>
