@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/spring_onion_splash_full.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

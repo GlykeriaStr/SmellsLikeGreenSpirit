@@ -6,21 +6,34 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "node_modules/.bin/jest test/**/*.spec.js"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/native": "^5.9.3",
+    "@react-navigation/stack": "^5.14.3",
+    "axios": "^0.21.1",
     "expo": "~40.0.0",
+    "expo-linear-gradient": "~8.4.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-gesture-handler": "~1.8.0",
+    "react-native-progress": "^4.1.2",
+    "react-native-reanimated": "~1.13.0",
+    "react-native-safe-area-context": "3.1.9",
+    "react-native-screens": "~2.15.2",
+    "react-native-web": "~0.13.12",
+    "react-native-webview": "11.0.0",
+    "strftime": "^0.10.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "detox": "^18.7.1",
-    "detox-expo-helpers": "^0.6.0",
-    "expo-detox-hook": "^1.0.10",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.22.0",
     "jest-circus": "^26.6.3",
     "jest-expo": "^40.0.2",
     "react-native-testing-library": "^6.0.0",
@@ -28,16 +41,6 @@
   },
   "jest": {
     "preset": "jest-expo"
-  },
-  "detox": {
-    "test-runner": "jest",
-    "configurations": {
-      "ios.sim": {
-        "binaryPath": "bin/Exponent.app",
-        "type": "ios.simulator",
-        "name": "iPhone 11"
-      }
-    }
   },
   "private": true
 }
