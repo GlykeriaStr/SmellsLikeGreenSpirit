@@ -59,7 +59,8 @@ const HistoryScreen = ({ navigation }) => {
       {!!history.length && (
         <>
           <Text style={styles.standardText}>
-            You have released {totalEmissionsResult} kilograms of CO2 over
+            You have released {totalEmissionsResult} kilograms of CO
+            <Text style={styles.standardTextSubscript}>2</Text> over
             {' ' + history.length} journeys.
           </Text>
           <Text
@@ -72,9 +73,10 @@ const HistoryScreen = ({ navigation }) => {
             data={history.reverse()}
             keyExtractor={(item) => item.key}
             renderItem={({ item }) => (
-              <Text>
+              <Text style={styles.listText}>
                 {item.distance} {item.units} on {item.date} releasing{' '}
-                {item.emissionsValue} kg of CO2
+                {item.emissionsValue} kg of CO
+                <Text style={styles.listTextSubscript}>2</Text>
                 {'\n'}
               </Text>
             )}
@@ -141,6 +143,25 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Futura',
     paddingBottom: 30,
+    textAlign: 'center',
+  },
+  standardTextSubscript: {
+    color: '#311844',
+    fontSize: 10,
+    fontFamily: 'Futura',
+    paddingBottom: 30,
+    textAlign: 'center',
+  },
+  listText: {
+    color: '#311844',
+    fontSize: 14,
+    fontFamily: 'Verdana',
+    textAlign: 'center',
+  },
+  listTextSubscript: {
+    color: '#311844',
+    fontSize: 8,
+    fontFamily: 'Verdana',
     textAlign: 'center',
   },
   standardTextAligned: {
