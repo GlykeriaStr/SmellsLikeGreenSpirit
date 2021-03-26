@@ -58,22 +58,24 @@ const HistoryScreen = ({ navigation }) => {
       </View>
       {!!history.length && (
         <>
-          <Text>
-            You have released {totalEmissionsResult} kilograms of CO2 over{' '}
-            {history.length} journeys.
+          <Text style={styles.standardText}>
+            You have released {totalEmissionsResult} kilograms of CO2 over
+            {' ' + history.length} journeys.
           </Text>
-          <Text>{'\n'}</Text>
           <Text
+            style={styles.link}
             onPress={() => navigation.navigate('Offsets', { resultInTonnes })}>
-            Offset this carbon!
+            Click to offset this carbon!
           </Text>
+          <Text style={styles.historyTitle}>Full List of Journeys</Text>
           <FlatList
             data={history.reverse()}
             keyExtractor={(item) => item.key}
             renderItem={({ item }) => (
               <Text>
-                {item.distance} {item.units} on {item.date}:{' '}
-                {item.emissionsValue} kg
+                {item.distance} {item.units} on {item.date} releasing{' '}
+                {item.emissionsValue} kg of CO2
+                {'\n'}
               </Text>
             )}
           />
@@ -107,11 +109,19 @@ const styles = StyleSheet.create({
     fontFamily: 'Futura',
     fontWeight: 'bold',
     fontSize: 30,
-    paddingBottom: 20,
+    paddingBottom: 30,
   },
   titleView: {
     flexDirection: 'row',
     alignItems: 'flex-start',
+    paddingBottom: 10,
+  },
+  historyTitle: {
+    color: '#311844',
+    fontSize: 20,
+    fontFamily: 'Futura',
+    paddingBottom: 30,
+    textDecorationLine: 'underline',
   },
   aboutButtonText: {
     color: '#369',
@@ -131,8 +141,17 @@ const styles = StyleSheet.create({
   },
   standardText: {
     color: '#311844',
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'Futura',
+    paddingBottom: 30,
+    textAlign: 'center',
+  },
+  standardTextAligned: {
+    color: '#311844',
+    fontSize: 18,
+    fontFamily: 'Futura',
+    paddingBottom: 25,
+    textAlign: 'center',
   },
   background: {
     position: 'absolute',
@@ -140,6 +159,12 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     height: 800,
+  },
+  link: {
+    color: '#4F8B3A',
+    fontSize: 25,
+    fontFamily: 'Futura',
+    paddingBottom: 50,
   },
 });
 

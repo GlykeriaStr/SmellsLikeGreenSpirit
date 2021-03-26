@@ -38,7 +38,6 @@ const ResultsScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-  
     <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
       <Text style={ styles.result }>
         {result} kilograms of CO<Text style={ styles.two }>2</Text>
