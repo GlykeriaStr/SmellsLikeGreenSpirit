@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -25,7 +25,15 @@ const AboutScreen = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
+
       <LinearGradient colors={['white', '#dbdbdf']} style={styles.background} />
+
+      <Image 
+        source={require('../../assets/spring_onion_splash3.png')} 
+        style={{ width: 120, height: 160 }}
+      />
+      
+
       <Text style={styles.heading}>About This App</Text>
       <ScrollView>
         <Text style={styles.text}>
