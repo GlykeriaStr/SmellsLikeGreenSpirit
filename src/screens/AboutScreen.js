@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Image, Text, View, ScrollView } from 'react-native';
 import React from 'react';
 
 const AboutScreen = ({ navigation }) => {
@@ -20,6 +20,10 @@ const AboutScreen = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
+      <Image 
+        source={require('../../assets/spring_onion_splash3.png')} 
+        style={{ width: 120, height: 160 }}
+      />
       
       <Text style={styles.heading}>About This App</Text>
       <ScrollView>
